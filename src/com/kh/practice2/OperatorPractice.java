@@ -17,4 +17,17 @@ public class OperatorPractice {
 			System.out.println("0 입니다.");
 		}
 	}
+	
+	public void practice2() {
+		// 모든 사람이 사탕을 골고루 나눠가지려고  한다. 인원수와 사탕개수를 키보드로 입력받아 
+		// 1인당 동일 사탕을 나눠주고 남은 갯수를 구하시오
+		System.out.println("사탕의 갯수를 입력하세요");
+		int candy = sc.nextInt();
+		System.out.println("사람의 수를 입력하세요");
+		int people = sc.nextInt();
+		
+		System.out.println("1인당 사탕의 갯수 : "+(candy/people));
+		System.out.println("남은 사탕의 개수  : "+(candy%people));
+		
+	}
 }
