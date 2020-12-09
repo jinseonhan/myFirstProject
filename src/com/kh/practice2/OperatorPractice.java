@@ -30,4 +30,8 @@ public class OperatorPractice {
 		System.out.println("남은 사탕의 개수  : "+(candy%people));
 		
 	}
+	
+	public void practice3() {
+		
+	}
 }
