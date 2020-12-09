@@ -31,7 +31,19 @@ public class OperatorPractice {
 		
 	}
 	
-	public void practice3() {
+	// 아이오트리 코딩 문제
+	public int practice3(int n) {
+		// 입력받은 숫자의 자릿수를 모두 합한 값을 출력하자
+		// 오른쪽부터 하나씩 나머지를 뽑아내서 자릿수를 내리며 출력한다.
 		
+		int sum =0; // 숫자를 저장하여 리턴할 값
+		
+		while(n!=0) {
+			int a= n%10; // 가장 오른쪽 한자리수를 추출
+			sum+=a; // 추출한 값을 sum에 담기
+			n=n/10; // 자릿수 줄이기
+		}
+		
+		return sum;
 	}
 }
