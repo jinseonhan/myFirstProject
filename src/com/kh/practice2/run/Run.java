@@ -7,11 +7,13 @@ public class Run {
 //		new OperatorPractice().practice1();
 //		new OperatorPractice().practice2();
 		
-		if(new OperatorPractice().practice3(333)==9) {
-			System.out.println("OK");
-		}else {
-			System.out.println("fail");
-		}
+//		if(new OperatorPractice().practice3(333)==9) {
+//			System.out.println("OK");
+//		}else {
+//			System.out.println("fail");
+//		}
+
+		new OperatorPractice().practic4();
 		
 	}
 }

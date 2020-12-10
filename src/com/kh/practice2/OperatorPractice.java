@@ -46,4 +46,23 @@ public class OperatorPractice {
 		
 		return sum;
 	}
+	
+	// 학원 문제
+	public void practic4() {
+		// 주민등록번호를 이요하여 남자인지 여자인지 구분하여 출력하기
+		
+		System.out.println("주민등록번호를 입력하세요. ('-' 포함)");
+		String str = sc.nextLine();	// 주민등록번호를 저장할 변수(String)
+		char gender = str.charAt(7); // 성별을 구분할 변수(char)
+		
+		
+		// char를 비교해 분기처리하여 결과값을 출력한다.
+		if(gender=='1'||str.charAt(7)=='3') {
+			System.out.println("남자 입니다.");
+		}else if(str.charAt(7)=='2'||gender=='4') {
+			System.out.println("여자 입니다.");
+		}else {
+			System.out.println("잘못입력하셨습니다.");
+		}
+	}
 }
