@@ -1,5 +1,6 @@
 package com.kh.practice2.run;
 
+import com.kh.practice2.CastingPractice1;
 import com.kh.practice2.OperatorPractice;
 
 public class Run {
@@ -13,7 +14,7 @@ public class Run {
 //			System.out.println("fail");
 //		}
 
-		new OperatorPractice().practic4();
-		
+//		new OperatorPractice().practic4();
+		new CastingPractice1().practice1();
 	}
 }
