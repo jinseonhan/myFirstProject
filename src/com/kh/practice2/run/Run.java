@@ -15,6 +15,8 @@ public class Run {
 //		}
 
 //		new OperatorPractice().practic4();
-		new CastingPractice1().practice1();
+//		new CastingPractice1().practice1();
+		
+		new CastingPractice1().practice2();
 	}
 }
