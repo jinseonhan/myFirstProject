@@ -53,6 +53,10 @@ public class coding {
 //		}
 //		return answer;
 		
+//		*******************************************************************************
+//		*******************************************************************************
+//		*******************************************************************************
+		
 		// 1 번째 풀이
 //		double doubleSqrt = Math.sqrt(n);
 //		int intSqrt = (int)doubleSqrt;
@@ -60,9 +64,9 @@ public class coding {
 //		return doubleSqrt==intSqrt ? (long)Math.pow(intSqrt=1,2) : -1;
 		
 		// 2번째 풀이
-		if(Math.pow((int)Math.sqrt(n),2)==n) 
-			return (long)Math.pow(Math.sqrt(n)+1,2);
-		return -1;
+		if(Math.pow((int)Math.sqrt(n),2)==n) // 입력 받은 n의 값과 n을 제곱근한 int값의 2제곱과 같다면
+			return (long)Math.pow(Math.sqrt(n)+1,2); // long형의 주어진 값을 반환하고
+		return -1;									// 아니면 -1을 반환한다.
 		
 		
 	}
