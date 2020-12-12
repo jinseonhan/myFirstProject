@@ -71,4 +71,26 @@ public class coding {
 		
 	}
 	
+	// 3. 다트게임
+	// *는 *2,#은 -1을 앞 숫자는 0~10
+	// *와 #은 중첩된다.
+	// *가 2개 나오면 첫번째는 *2*2, *가 3개가 나오면 첫번째 는 *2*2*2
+	// 예제1 dartResult 1S2D*3T answer=37
+	// 예제2 dartResult 1D2S#10S answer=9
+	// 예제3 dartResult 1D2S0T answer=3
+	// 예제4 dartResult 1S*2T*3S answer=23
+	// 예제5 dartResult 1D#2S*3S answer=5
+	// 예제6 dartResult 1T2D3D# answer=-4
+	// 예제7 dartResult 1D2S3T* answer=59
+	
+	public void coding3() {
+		String dartResult1 ="1S2D*3T";
+		String dartResult2 ="1D2S#10S";
+		String dartResult3 ="1D2S0T";
+		String dartResult4 ="1S*2T*3S";
+		String dartResult5 ="1D#2S*3S";
+		String dartResult6 ="1T2D3D#";
+		String dartResult7 ="1D2S3T*";
+		
+	}
 }
