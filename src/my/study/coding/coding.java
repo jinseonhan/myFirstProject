@@ -86,34 +86,36 @@ public class coding {
 	public int coding3(String str) {
 		
 		int[] arr = new int[3];
-		int curIdx =0;
-		String tempNum="";
+		int Idx =0; // 배열에 담을 인덱스
+		String tempNum=""; // 
 		for(char c:str.toCharArray()) {
-			if(Character.isDigit(c)) {
+			// str.toCharArray() : 문자열 str을 배열로 만든다.
+			if(Character.isDigit(c)) { // 
+				// isDigit(c) : c의 값이 문자이면 true를 반환
 				tempNum=tempNum+c;
 			}else {
 				if(!"".equals(tempNum)) {
-					arr[curIdx++] =Integer.parseInt(tempNum);
+					arr[Idx++] =Integer.parseInt(tempNum);
 					tempNum="";
 				}
 				switch(c) {
 					case 'S' :
-						arr[curIdx-1] = (int)Math.pow(arr[curIdx-1], 1);
+						arr[Idx-1] = (int)Math.pow(arr[Idx-1], 1);
 						break;
 					case 'D' :
-						arr[curIdx-1] = (int)Math.pow(arr[curIdx-1], 2);
+						arr[Idx-1] = (int)Math.pow(arr[Idx-1], 2);
 						break;
 					case 'T' :
-						arr[curIdx-1] = (int)Math.pow(arr[curIdx-1], 3);
+						arr[Idx-1] = (int)Math.pow(arr[Idx-1], 3);
 						break;
 					case '*' :
-						arr[curIdx-1] =arr[curIdx-1]*2;
-						if(curIdx-2>=0) {
-							arr[curIdx-2]=arr[curIdx-2]*2;
+						arr[Idx-1] =arr[Idx-1]*2;
+						if(Idx-2>=0) {
+							arr[Idx-2]=arr[Idx-2]*2;
 						}
 						break;
 					case '#' :
-						arr[curIdx-1] =arr[curIdx-1]*(-1);
+						arr[Idx-1] =arr[Idx-1]*(-1);
 						break;
 				}
 			}
