@@ -83,14 +83,42 @@ public class coding {
 	// 예제6 dartResult 1T2D3D# answer=-4
 	// 예제7 dartResult 1D2S3T* answer=59
 	
-	public void coding3() {
-		String dartResult1 ="1S2D*3T";
-		String dartResult2 ="1D2S#10S";
-		String dartResult3 ="1D2S0T";
-		String dartResult4 ="1S*2T*3S";
-		String dartResult5 ="1D#2S*3S";
-		String dartResult6 ="1T2D3D#";
-		String dartResult7 ="1D2S3T*";
+	public int coding3(String str) {
+		
+		int[] arr = new int[3];
+		int curIdx =0;
+		String tempNum="";
+		for(char c:str.toCharArray()) {
+			if(Character.isDigit(c)) {
+				tempNum=tempNum+c;
+			}else {
+				if(!"".equals(tempNum)) {
+					arr[curIdx++] =Integer.parseInt(tempNum);
+					tempNum="";
+				}
+				switch(c) {
+					case 'S' :
+						arr[curIdx-1] = (int)Math.pow(arr[curIdx-1], 1);
+						break;
+					case 'D' :
+						arr[curIdx-1] = (int)Math.pow(arr[curIdx-1], 2);
+						break;
+					case 'T' :
+						arr[curIdx-1] = (int)Math.pow(arr[curIdx-1], 3);
+						break;
+					case '*' :
+						arr[curIdx-1] =arr[curIdx-1]*2;
+						if(curIdx-2>=0) {
+							arr[curIdx-2]=arr[curIdx-2]*2;
+						}
+						break;
+					case '#' :
+						arr[curIdx-1] =arr[curIdx-1]*(-1);
+						break;
+				}
+			}
+		}
+		return arr[0]+arr[1]+arr[2];
 		
 	}
 }
