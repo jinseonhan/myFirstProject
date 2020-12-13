@@ -90,12 +90,12 @@ public class coding {
 		String tempNum=""; // 
 		for(char c:str.toCharArray()) {
 			// str.toCharArray() : 문자열 str을 배열로 만든다.
-			if(Character.isDigit(c)) { // 
+			if(Character.isDigit(c)) { // 반복을 돌면서 
 				// isDigit(c) : c의 값이 문자이면 true를 반환
-				tempNum=tempNum+c;
-			}else {
-				if(!"".equals(tempNum)) {
-					arr[Idx++] =Integer.parseInt(tempNum);
+				tempNum+=c; // tempNum에 글자 하나 "c"를 담는다.
+			}else { // 문자가 아니면
+				if(!"".equals(tempNum)) { // tempNum이 공백이 아니면
+					arr[Idx++] =Integer.parseInt(tempNum); // 
 					tempNum="";
 				}
 				switch(c) {
