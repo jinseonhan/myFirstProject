@@ -90,8 +90,8 @@ public class coding {
 		String tempNum=""; // 
 		for(char c:str.toCharArray()) {
 			// str.toCharArray() : 문자열 str을 배열로 만든다.
-			if(Character.isDigit(c)) { // 반복을 돌면서 
-				// isDigit(c) : c의 값이 숫자이면 true를 반환
+			if(Character.isDigit(c)) { // 반복을 돌면서 c의 값이 숫자이면 true를 반환 
+				// Character.isDigit(c) : c 의 값이 숫자이면 true반환, 숫자가 아니면 false 반환하는 함수
 				tempNum+=c; // tempNum에 글자 하나 "c"를 담는다. // 10일 수 있기 때문에 담는다.
 			}else { // 문자라면
 				if(!"".equals(tempNum)) { // tempNum이 공백이 아니면
