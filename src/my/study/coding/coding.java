@@ -83,12 +83,35 @@ public class coding {
 	// 예제6 dartResult 1T2D3D# answer=-4
 	// 예제7 dartResult 1D2S3T* answer=59
 	
-	public int coding3(String str) {
-		
+	public int coding3(int a) {
+		String dartResult="";
+		switch(a) {
+			case 1 :
+				 dartResult ="1S2D*3T";
+				break;
+			case 2 :
+				 dartResult ="1D2S#10S";
+				break;
+			case 3 :
+				 dartResult ="1D2S0T";
+				break;
+			case 4 :
+				 dartResult ="1S*2T*3S";				
+				break;
+			case 5 :
+				 dartResult ="1D#2S*3S";				
+				break;
+			case 6 :
+				 dartResult ="1T2D3D#";				
+				break;
+			case 7 :
+				 dartResult ="1D2S3T*";				
+				break;
+		}		
 		int[] arr = new int[3];
 		int Idx =0; // 배열에 담을 인덱스
 		String tempNum=""; // 
-		for(char c:str.toCharArray()) {
+		for(char c:dartResult.toCharArray()) {
 			// str.toCharArray() : 문자열 str을 배열로 만든다.
 			if(Character.isDigit(c)) { // 반복을 돌면서 c의 값이 숫자이면 true를 반환 
 				// Character.isDigit(c) : c 의 값이 숫자이면 true반환, 숫자가 아니면 false 반환하는 함수
@@ -121,6 +144,35 @@ public class coding {
 			}
 		}
 		return arr[0]+arr[1]+arr[2];
-		
 	}
+		
+	// 4.숫자들을 더해 합계 반환하기
+	public long coding4(int a, int b) {
+		long answer=0;
+		
+		if(a<b) {
+			for(int i=a;i<=b;i++) {
+				answer+=i;
+			}
+		}else {
+			for(int i=a;i>=b;i--) {
+				answer+=i;
+			}
+		}
+		
+		return answer;
+	}
+	
+	// 5.문자열을 숫자로 변환하기
+	public int coding5(String s) {
+		int answer =0;
+		
+		answer=Integer.parseInt(s); // Integer.parseInt(string) : 음수를 인식할 수 있음 => Integer객체로 반환
+									// Integer.valueOf(string) : 음수를 인식하지 못함 => 자료형으로 반환
+									// Integer.valueOf(Integer.parseInt(String)) => 음수,양수를 구분하여 Integer 객체로 반환
+
+		return answer;
+	}
+	
+	
 }
