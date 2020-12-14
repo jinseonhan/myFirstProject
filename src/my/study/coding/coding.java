@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class coding {
 	Scanner sc =new Scanner(System.in);
 	// 1. 두개의 정수 n 과 m 이 주어진다.
-	// 별(*)ㅂ 문자를 이용해 길이가 n, 세로의 길이가 m인 직사각형의 형태를 출력하자.
+	// 별(*) 문자를 이용해 길이가 n, 세로의 길이가 m인 직사각형의 형태를 출력하자.
 	public void coding1() {
 		System.out.println("가로의 갯수를 입력하세요");
 		int a= sc.nextInt();
@@ -91,16 +91,16 @@ public class coding {
 		for(char c:str.toCharArray()) {
 			// str.toCharArray() : 문자열 str을 배열로 만든다.
 			if(Character.isDigit(c)) { // 반복을 돌면서 
-				// isDigit(c) : c의 값이 문자이면 true를 반환
-				tempNum+=c; // tempNum에 글자 하나 "c"를 담는다.
-			}else { // 문자가 아니면
+				// isDigit(c) : c의 값이 숫자이면 true를 반환
+				tempNum+=c; // tempNum에 글자 하나 "c"를 담는다. // 10일 수 있기 때문에 담는다.
+			}else { // 문자라면
 				if(!"".equals(tempNum)) { // tempNum이 공백이 아니면
-					arr[Idx++] =Integer.parseInt(tempNum); // 
-					tempNum="";
+					arr[Idx++] =Integer.parseInt(tempNum); // tempNum에 담긴 String형을 숫자로 변환하여 arr[]에 담고 Idx를 1을 후위연산으로 증가시킨다.
+					tempNum=""; // 기존 tempNum을 초기화한다.
 				}
 				switch(c) {
 					case 'S' :
-						arr[Idx-1] = (int)Math.pow(arr[Idx-1], 1);
+						arr[Idx-1] = (int)Math.pow(arr[Idx-1], 1); // if문에서 arr에 담은 값과 c에 담긴 문자를 비교하여 제곱한다.
 						break;
 					case 'D' :
 						arr[Idx-1] = (int)Math.pow(arr[Idx-1], 2);
@@ -110,12 +110,12 @@ public class coding {
 						break;
 					case '*' :
 						arr[Idx-1] =arr[Idx-1]*2;
-						if(Idx-2>=0) {
-							arr[Idx-2]=arr[Idx-2]*2;
+						if(Idx-2>=0) { // arr의 자릿수를 확인하여 arr[2]가 마지막이기 떄문에 arr[1]까지 값이 있으면 arr[0]의 값에 2배를 더 곱해준다.
+							arr[Idx-2]=arr[Idx-2]*2; 
 						}
 						break;
 					case '#' :
-						arr[Idx-1] =arr[Idx-1]*(-1);
+						arr[Idx-1] =arr[Idx-1]*(-1); // '#'이 있다면 음수로 만든다.
 						break;
 				}
 			}
