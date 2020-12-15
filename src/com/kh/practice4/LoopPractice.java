@@ -20,4 +20,15 @@ public class LoopPractice {
 		System.out.print(sum);
 		
 	}
+	
+	// 2. 별찍기 1-1,2-2,3-3,4-4... 주어진 n에 알맞은 별을 찍어라
+	public void practice2(int n) {
+		for(int i=1;i<=n;i++) {
+			for(int j=1;j<=i;j++) {
+				System.out.print("*");
+			}
+			System.out.println();
+		}
+	}
+	
 }
