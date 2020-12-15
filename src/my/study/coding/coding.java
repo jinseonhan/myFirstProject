@@ -174,5 +174,24 @@ public class coding {
 		return answer;
 	}
 	
+	public int coding6(int n) {
+		int answer =0;
+		
+		int initBit = Integer.bitCount(n); 
+		// Integer.bitCount(n) : int형 n를 2진수를 변환한 후 1의 갯수를 세는 함수
+		int nextBit = 0;
+		
+		while(true) {
+			n++; // 기존 n의 숫자를 증가시키고
+			nextBit = Integer.bitCount(n); // 1의 갯수를 세어본다.
+			if(initBit==nextBit) { // 만약 증가시킨 값과 기존값의 1의 숫자가 같은지 확인
+				answer=n; // 그 자연수 n을 담고
+				break; // 나온다.
+			}
+		}
+		
+		
+		return answer;
+	}
 	
 }
