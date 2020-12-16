@@ -227,5 +227,18 @@ public class coding {
 
 		return answer;
 	}
+	
+	
+	// 프로그래머스 2단계 문제
+	public int[] coding8(String s) {
+		int[] answer = {};
+		
+		// s로 들어온 2진수에서 0을 삭제한 만큼 저장하고, 남은 1의 갯수= 숫자로 저장한다.
+		// 저장된 숫자를 2진수로 만들어 다시 0을 삭제한만큼 저장하고, 1의 갯수 = 숫자로 저장한다.
+		// 0을 더이상 삭제할 수 없을 때까지 반복하고 answer[0]에는 반복횟수를 저장하고, answer[1]에는 삭제한 0의 갯수를 저장한다.  
+		
+		
+		return answer;
+	}
 
 }
