@@ -47,4 +47,18 @@ public class LoopPractice {
 		}
 	}
 	
+	// 4. 등차수열
+	public void practice4(int start, int n) {
+		// start : 초기값  , n : 공차  
+		System.out.println("시작숫자 : "+ start);
+		System.out.println("공차 : "+n);
+		System.out.print(start+" ");
+		for(int i=1;i<=9;i++) {
+			start+=n;
+			System.out.print(start+" ");
+		}
+		
+		
+	}
+	
 }
