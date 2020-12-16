@@ -15,6 +15,11 @@ public class Run {
 		
 		// 4. 숫자 2개의 합계 구하기
 		System.out.println(new coding().coding4(2,4));
+	
+		// 6. 다음숫자 구하기
+		System.out.println(new coding().coding6(3));
 		
+		// 7. n진수 게임
+		System.out.println(new coding().coding7(2, 5, 2, 1));
 	}
 }

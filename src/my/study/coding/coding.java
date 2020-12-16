@@ -174,6 +174,9 @@ public class coding {
 		return answer;
 	}
 	
+	// 6. 프로그래머스 문제
+	// 입력받은 자연수 n의 다음수를 구하라
+	// 조건은 2진수 변환시 1의 갯수가 입력받은 n과 같아야 한다.
 	public int coding6(int n) {
 		int answer =0;
 		
@@ -194,4 +197,35 @@ public class coding {
 		return answer;
 	}
 	
+	//  프로그래머스 문제
+	// n진수 게임(n : 진법, t : 말해야할 숫자의 갯수, m : 참여 인원, p : 튜브의 순서)
+	public String coding7(int n, int t, int m, int p) {
+		String str = "0"; // 전체를 담을 문자형 변수, 0부터 시작하기 때문에 0을 초기에 담아준다.
+		int count = 0;
+        
+		while (str.length() < (t * m + p)) { // t*m은 내가 마지막-1까지의 숫자들 //p는 마지막에 내가 말해야할 숫자
+			String byNum = ""; // num에 담긴 숫자를 n진법으로 나눠 하나씩 담을 변수
+			int num = count++; 
+			
+			// N진법 구하는 방법
+			while (num != 0) { //  
+				if (num % n >= 10) // 16진수의 알파벳을 대비해 존재
+					byNum += String.valueOf((char) (num % n + 55)); // 10+55 = A, 11+55= B. ....
+				else	// 16진수 이하 진법 계산
+					byNum += String.valueOf(num % n);
+
+				num /= n; // num= num/n
+			}
+
+			str += new StringBuffer(byNum).reverse().toString(); // byNum으로 뽑아낸 값을 역으로 str에 담는다. 0 1 10 11 100.....
+		}
+
+		String answer = ""; // return 값을 초기화
+
+		for (int i = 0; i < t; i++)
+			answer += String.valueOf(str.charAt(m * i + p - 1)); // 튜브가 말할 순서의 숫자 를 answer에 담는다.
+
+		return answer;
+	}
+
 }
