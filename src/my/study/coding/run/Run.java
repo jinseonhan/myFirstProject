@@ -11,15 +11,20 @@ public class Run {
 //		System.out.println(new coding().coding2(121));
 		
 		// 3.다트게임
-		System.out.println(new coding().coding3(1));
+//		System.out.println(new coding().coding3(1));
 		
 		// 4. 숫자 2개의 합계 구하기
-		System.out.println(new coding().coding4(2,4));
+//		System.out.println(new coding().coding4(2,4));
 	
 		// 6. 다음숫자 구하기
-		System.out.println(new coding().coding6(3));
+//		System.out.println(new coding().coding6(3));
 		
 		// 7. n진수 게임
-		System.out.println(new coding().coding7(2, 5, 2, 1));
+//		System.out.println(new coding().coding7(2, 5, 2, 1));
+	
+		// 8. 2진수 반복 변환
+		System.out.println(new coding().coding8("110110001")[0]+" "+new coding().coding8("110110001")[1]);
+	
 	}
+	
 }

@@ -230,13 +230,29 @@ public class coding {
 	
 	
 	// 프로그래머스 2단계 문제
+	// 2진수 변환 반복하기
 	public int[] coding8(String s) {
 		int[] answer = {};
+		answer = new int[2];
 		
-		// s로 들어온 2진수에서 0을 삭제한 만큼 저장하고, 남은 1의 갯수= 숫자로 저장한다.
-		// 저장된 숫자를 2진수로 만들어 다시 0을 삭제한만큼 저장하고, 1의 갯수 = 숫자로 저장한다.
-		// 0을 더이상 삭제할 수 없을 때까지 반복하고 answer[0]에는 반복횟수를 저장하고, answer[1]에는 삭제한 0의 갯수를 저장한다.  
-		
+		int count=0; // 반복 횟수를 저장할 변수
+		int countZero =0; // 지워진 0의 갯수를 저장할 변수
+
+		// 반복문으로 1의 갯수를 센 값과 길이가 같을 경우까지 반복시킨다.
+		while(!s.equals("1")) { // "1"로만 구성되지 않았다면 무한 반복
+			int countOne=0;	// 1의 갯수를 세어 자연수로 만들 변수이자 s에 2진수로 다시 담을 변수
+			for(int i=0;i<s.length();i++) { // s의 길이까지 반복하며 
+				if(s.charAt(i)=='0') {	// 문자에 0이 있으면 제거 할 0에 담고
+					countZero++;
+				}else {	// 그렇지 않으면(1일경우) 자연수로 만들 변수에 담는다.
+					countOne++;
+				}
+			}
+			s=Integer.toBinaryString(countOne); // 반복문이 끝나고 자연수를 다시한번 2진수로 만든다.
+			count++;	// 그리고 반복횟수를 저장한다.
+		}
+		answer[0]=count;	// 총 반복횟수를 return값에 저장하고
+		answer[1]=countZero;	// 총 제거된 0의 갯수를 return값에 저장한다.
 		
 		return answer;
 	}
