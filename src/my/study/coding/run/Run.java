@@ -23,8 +23,15 @@ public class Run {
 //		System.out.println(new coding().coding7(2, 5, 2, 1));
 	
 		// 8. 2진수 반복 변환
-		System.out.println(new coding().coding8("110110001")[0]+" "+new coding().coding8("110110001")[1]);
+//		System.out.println(new coding().coding8("110110001")[0]+" "+new coding().coding8("110110001")[1]);
 	
+		// 9. 오픈 채팅방
+		String [] a = {"Enter uid1234 Muzi", "Enter uid4567 Prodo","Leave uid1234","Enter uid1234 Prodo","Change uid4567 Ryan"};
+		String[] answer =new coding().coding9(a);
+		System.out.println(answer.length);
+		for(int i=0;i<answer.length;i++) {
+			System.out.println(answer[i]);
+		}
 	}
 	
 }
