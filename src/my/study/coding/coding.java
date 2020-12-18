@@ -262,26 +262,28 @@ public class coding {
 	// 프로그래머스 2단계 문제
 	// 오픈채팅방
 	public String[] coding9(String[] record) {
-        ArrayList<String> arr = new ArrayList();
-		HashMap<String, String> map = new HashMap();
+        ArrayList<String> arr = new ArrayList();	// 출력할 문구를 저장할 arraylist
+		HashMap<String, String> map = new HashMap(); // key(아이디), value(닉네임)을 저장할 맵 객체
 		for (int i = 0; i < record.length; i++) {
-			String[] command = record[i].split(" ");
-
-			if (command[0].equals("Enter")) {
-				arr.add(command[1] + "님이 들어왔습니다.");
-				map.put(command[1], command[2]);
+			String[] command = record[i].split(" "); // 공백을 기준으로 자른다.
+			// command[0] = 행동  command[1] = 아이디  command[2] = 닉네임
+			// 행동 구분을하고, 앞에 command[1]를 key값으로 만들어 arraylist에 저장한다.
+			
+			if (command[0].equals("Enter")) {	// command[0]이 enter라면
+				arr.add(command[1] + "님이 들어왔습니다."); // 유저 아이디 + 들어왔습니다.
+				map.put(command[1], command[2]);	// key-value값으로 저장 , 아이디는 변하지 않기 때문에 key 로 설정하고 닉네임은 변하기 때문에 value로 저장
 			} else if (command[0].equals("Change")) {
-				map.put(command[1], command[2]);
+				map.put(command[1], command[2]);	// key의 value를 변경한다. 
 			} else {
 				arr.add(command[1] + "님이 나갔습니다.");
 			}
 		}
-		String[] answer = new String[arr.size()];
-		for (int i = 0; i < arr.size(); i++) {
-			int idx = arr.get(i).indexOf("님");
-			String id = arr.get(i).substring(0, idx);
-			String[] temp = arr.get(i).split(" ");
-			answer[i] = map.get(id) + "님이 " + temp[1];
+		String[] answer = new String[arr.size()]; // 출력하기위해 저장된 arraylist 사이즈만큼 String배열을 만든다.
+		for (int i = 0; i < arr.size(); i++) { // arr에 담긴 값을 차례대로 key값을 value로 변경하여 answer에 담기
+			int idx = arr.get(i).indexOf("님"); // "님"을 기준 찾기
+			String id = arr.get(i).substring(0, idx);	//id를 담기위해 arr에 저장된 값 0~idx까지를 잘라내서 저장
+			String[] temp = arr.get(i).split(" ");	// 앞에 id값은 잘라낸다. 
+			answer[i] = map.get(id) + "님이 " + temp[1];	// 앞에 id를 달라내고 key값 + "님이" + 뒤에 행동을 answer[i]에 담는다
 		}
         return answer;
     }
