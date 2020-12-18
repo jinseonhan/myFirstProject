@@ -25,12 +25,12 @@ public class algorithm {
 		primeList.add(false); // 1번째
 		// 2~ n 까지 소수로 설정
 		for(int i=2; i<=n; i++ )
-			primeList.add(i, true);
+			primeList.add(i, true); // arraylist의 i번째에 true를 넣는다.
 
 		// 2 부터  ~ i*i <= n
 		// 각각의 배수들을 지워간다.
 		for(int i=2; (i*i)<=n; i++){
-			if(primeList.get(i)){
+			if(primeList.get(i)){ // 이미 배수이기 떄문에 false로 된 경우 들어오지 않는다. ex) 2의 배수인 4는 2의 배수들에 포함
 				for(int j = i*i; j<=n; j+=i) primeList.set(j, false);
 				//i*i 미만은 이미 처리되었으므로 j의 시작값은 i*i로 최적화할 수 있다.
 			}

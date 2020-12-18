@@ -61,4 +61,21 @@ public class LoopPractice {
 		
 	}
 	
+	// 5-1. 소수 구하기
+	public String practice5(int n) {
+		// 사용자가 입력한 숫자가 소수인지 확인
+		// 2이하의 수를 입력하면 잘못입력하였습니다. 출력
+		String str="";
+		if(n<=2) {
+		 	return str="2보다 큰 숫자를 입력해주세요.";
+		}else {
+			for(int i=2;i<n;i++) {
+				if(n%i==0) {					
+					return str=n+"는 소수가 아닙니다.";
+				}
+			}			
+		}
+		return str=n+"는 소수입니다.";
+	}
+
 }

@@ -7,7 +7,8 @@ public class Run {
 //		new LoopPractice().practice1();
 //		new LoopPractice().practice2(6);
 //		new LoopPractice().practice3(4);
-		new LoopPractice().practice4(2,4);
+//		new LoopPractice().practice4(2,4);
+		System.out.println(new LoopPractice().practice5(2));
 		
 	}
 }
