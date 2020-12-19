@@ -77,8 +77,7 @@ public class LoopPractice {
 		}
 		return str=n+"는 소수입니다.";
 	}
-
-	// 6. 트리 만들기
+//	피라미드 찍기
 	public void practice6(int n) {
 		// n = 4   1-1 ,2-3, 3-5, 4-7 // n*2-1 |4| 3,4,5| 2,3,4,5,6| 1,2,3,4,5,6,7
 		// xxxOxxx
@@ -86,12 +85,16 @@ public class LoopPractice {
 		// xOOOOOx
 		// OOOOOOO
 		for(int i=1;i<=n;i++) {
-			if(n/2-1==i) { // 가운데 *
-				System.out.print("*");
-			}else{
-			
-				System.out.println();
+			for(int j=1;j<=n*2-1;j++) {
+				if(j==n) {
+					System.out.print("*");
+				}else if(j<=n-i||j>=n+i) {
+					System.out.print(" ");
+				}else {
+					System.out.print("*");
+				}
 			}
+			System.out.println();
 		}
 	}
 }
