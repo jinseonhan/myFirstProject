@@ -26,11 +26,20 @@ public class Run {
 //		System.out.println(new coding().coding8("110110001")[0]+" "+new coding().coding8("110110001")[1]);
 	
 		// 9. 오픈 채팅방
-		String [] a = {"Enter uid1234 Muzi", "Enter uid4567 Prodo","Leave uid1234","Enter uid1234 Prodo","Change uid4567 Ryan"};
-		String[] answer =new coding().coding9(a);
-		for(int i=0;i<answer.length;i++) {
-			System.out.println(answer[i]);
-		}
+//		String [] a = {"Enter uid1234 Muzi", "Enter uid4567 Prodo","Leave uid1234","Enter uid1234 Prodo","Change uid4567 Ryan"};
+//		String[] answer =new coding().coding9(a);
+//		for(int i=0;i<answer.length;i++) {
+//			System.out.println(answer[i]);
+//		}
+		
+		// 10-1. 피보나치 수열(내가 해결한 방법)
+		System.out.println(new coding().coding10_1(8));
+		
+		// 10-2. 피보나치 수열(솔루션)
+		System.out.println(new coding().coding10_2(8));
+		
+		
+		
 	}
 	
 }

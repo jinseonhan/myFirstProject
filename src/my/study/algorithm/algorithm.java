@@ -48,4 +48,27 @@ public class algorithm {
 		System.out.println(sb.toString());
 
 	}
+	
+	
+	// 완전 탐색
+	// 주어진 자연수를 연속된 자연수의 합으로 나타내는 방법의 수 구하기
+	public int practice2(int n) {
+		int answer=0;
+		int sum; // 합계를 담을 변수
+		
+		for(int i=1;i<=n;i++) {
+			sum=0; // sum 초기화
+			for(int j=i;j<=n;j++) {	// 초기값이 1부터 시작하며 점차 증가한다.
+				sum+=j;	// j부터 시작한 값을 담는다.
+				if(sum==n) {	// j부터 시작한 값이 n과 같아지면 answer에 하나를 증가시킨다.
+					answer++;
+					break;
+				}else if(sum>n) {	// j부터 증가해도 안되는 경우는 그냥 반복문을 빠져나간다.
+					break;
+				}
+			}
+		}
+		
+		return answer;
+	}
 }

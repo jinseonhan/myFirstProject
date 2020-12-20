@@ -287,5 +287,34 @@ public class coding {
 		}
         return answer;
     }
-	
+	// 프로그래머스 2단계 문제
+	// 피보나치 수열 구하기(내가 해결한 방법)
+	public int coding10_1(int n) {
+		int answer=0;
+		
+		int num[] =new int[n+1];
+		num[0]=0;
+		num[1]=1;
+		
+		for(int i=2;i<=n;i++) {
+			num[i]=num[i-1]+num[i-2];
+		}
+		answer =num[n]%123457;
+		
+		return answer;
+	}
+	// 피보나치 수열 구하기(솔루션)
+	public int coding10_2(int n) {
+		int answer=0;
+		if(n == 1 || n == 2) return 1;
+		
+		int n1 = 1, n2 = 1; // 
+		for(int i=3; i<=n; i++) {
+			answer = n1 + n2; 
+			answer %= 1234567; 
+			n1 = n2; 
+			n2 = answer;
+		}	
+		return answer;
+	}
 }
