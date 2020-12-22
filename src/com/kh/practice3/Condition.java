@@ -61,7 +61,66 @@ public class Condition {
 		}else {
 			System.out.println("연산기호를 입력하지않아 프로그램을 종료합니다.");
 		}
+	}
+	
+	// 키와 몸무게를 입력받고 BMI를 계산하여
+	// 저체중(20미만), 정상체중 (20~25), 과체중 (25~30미만), 비만(30이상)
+	// BMI = kg/m*m
+	public void practice3() {
+		System.out.println("체중을 입력하세요(kg)");
+		double kg = sc.nextDouble();
+		System.out.println("키를 입력하세요(m)");
+		double tall =sc.nextDouble();
+		double bmi =kg/(tall*tall);
 		
+		if(bmi<20) {
+			System.out.println("저체중 입니다.");
+		}else if(bmi>=20 && bmi <25) {
+			System.out.println("정상체중 입니다.");
+		}else if(bmi>=25 && bmi <30) {
+			System.out.println("과체중 입니다.");
+		}else {
+			System.out.println("비만 입니다.");
+		}
+	}
+	
+	// 과일 이름(사과, 바나나, 복숭아, 키위)를 입력받아 해당하는 가격에 맞게 상품명과 가격을 출력하세요.
+	public void practice4() {
+		System.out.println("가격을 알고싶은 과일의 이름을 입력하세요(사과, 바나나, 복숭아, 키위)");
+		String fru = sc.nextLine();
+		
+		if(fru.equals("사과")) {
+			System.out.println("사과의 가격은 1,000원입니다.");
+		}else if(fru.equals("바나나")) {
+			System.out.println("바나나의 가격은 3,000원입니다.");
+		}else if(fru.equals("복숭아")) {
+			System.out.println("복숭아의 가격은 2,000원입니다.");
+		}else if(fru.equals("키위")) {
+			System.out.println("키위의 가격은 5,000원입니다.");
+		}else {
+			System.out.println("입력하신 정보가 없습니다.");
+		}
+	}
+	
+	// 국어, 영어, 수학 평균점수 구하기
+	public void practice5() {
+		System.out.println("국어 점수를 입력하세요.");
+		int kor =sc.nextInt();
+		System.out.println("영어 점수를 입력하세요.");
+		int eng = sc.nextInt();
+		System.out.println("수학 점수를 입력하세요.");
+		int math=sc.nextInt();
+		int avg =(kor+eng+math)/3;
+		
+		if(avg>=60) {
+			System.out.println("합격!");
+		}else {
+			System.out.println("불합격!");
+		}
+	}
+	
+	public void practice6() {
 		
 	}
+	
 }
