@@ -119,7 +119,29 @@ public class Condition {
 		}
 	}
 	
+	// 영업 사원의 월급을 계산하는 프로그램
 	public void practice6() {
+		System.out.println("월 급여 입력 : ");
+		int salary = sc.nextInt();
+		System.out.println("매출액 입력 :");
+		int sale = sc.nextInt();
+		int bonus =0;
+		if(sale>=50000000) {
+			bonus=5;
+		}else if(sale<50000000&&sale>=30000000) {
+			bonus=3;
+		}else if(sale<30000000&&sale>=10000000) {
+			bonus=1;
+		}else {
+			bonus=0;
+		}
+		System.out.println("=====================");
+		System.out.println("매출액 : "+sale);
+		System.out.println("보너스율 : "+bonus+"%");
+		System.out.println("월 급여 : "+salary);
+		System.out.println("보너스 금액 : "+(sale*bonus/100));
+		System.out.println("=====================");
+		System.out.println("총 연봉 : "+((salary*12)+(sale*bonus/100)));
 		
 	}
 	

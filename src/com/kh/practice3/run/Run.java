@@ -10,6 +10,7 @@ public class Run {
 //		new Condition().practice2();
 //		new Condition().practice3();
 //		new Condition().practice4();
-		new Condition().practice5();
+//		new Condition().practice5();
+		new Condition().practice6();
 	}
 }
