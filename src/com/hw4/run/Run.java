@@ -19,7 +19,11 @@ public class Run {
 		while(yn!='N') {
 			System.out.println("학생의 정보를 입력하시겠습니까?(Y/N)");
 			yn=sc.next().charAt(0);
-			
+			if(yn=='y') {
+				yn='Y';
+			}else if(yn=='n') {
+				yn='N';
+			}
 			switch(yn) {
 			case 'Y' : if(num<st.length) {
 				st[num] = enter();
