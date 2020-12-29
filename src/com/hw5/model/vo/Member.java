@@ -32,7 +32,7 @@ public class Member {
 	public int getAge() {
 		return age;
 	}
-	public char gender() {
+	public char getGender() {
 		return gender;
 	}
 	public String getEmail() {

@@ -3,9 +3,10 @@ package com.hw5.view;
 import java.util.Scanner;
 
 import com.hw5.controller.MemberController;
+import com.hw5.model.vo.Member;
 
 public class MemberMenu {
-	private MemberController mc;
+	private MemberController mc = new MemberController();
 	
 	Scanner sc = new Scanner(System.in);
 	
@@ -43,16 +44,36 @@ public class MemberMenu {
 	}
 	
 	public void inserMember() {
-		// member count가 최대 회원수를 넘어설 경우 return처리
-		if(mc.SIZE<=mc.getMemberCount()) {
+		// memberCount가 최대 회원수를 넘어설 경우 return처리
+		if(MemberController.SIZE<=mc.getMemberCount()) {
 			System.out.println("최대 회원을 넘어섰습니다.");
 			return;
+		}else {
+			sc.nextLine();
+			System.out.println("추가할 아이디를 입력하세요.");
+			String userId = sc.nextLine();
+			
+			if(mc.checkId(userId)!=null) {
+				System.out.println("중복된 아이디가 존재합니다.");
+				return;
+			}else {
+				System.out.println("비밀번호를 입력하세요.");
+				String userPwd = sc.nextLine();
+				System.out.println("이름을 입력하세요.");
+				String name= sc.nextLine();
+				System.out.println("나이를 입력하세요.");
+				int age =sc.nextInt();
+				sc.nextLine();
+				System.out.println("성별을 입력하세요.");
+				char gender=sc.nextLine().charAt(0);
+				System.out.println("이메일을 입력하세요.");
+				String email=sc.nextLine();
+				
+				Member m = new Member(userId, userPwd, name, age, gender, email);
+				
+				mc.insertMember(m); // controller에 정보 전달
+			}
 		}
-		
-		System.out.println("추가할 아이디를 입력하세요.");
-		String name = sc.nextLine();
-		mc.checkId(name);
-		
 	}
 	
 	public void searchMember() {
