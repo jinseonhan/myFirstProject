@@ -23,7 +23,7 @@ public class MemberMenu {
 			System.out.println("6.회원 정보 정렬");
 			System.out.println("9.프로그램 종료");
 			num=sc.nextInt();
-			
+			sc.nextLine();
 			switch(num) {
 				case 1 : inserMember();
 				break;
@@ -138,7 +138,22 @@ public class MemberMenu {
 		}
 	}
 	public void deleteMember() {
-		
+		System.out.println("삭제할 회원 아이디 : ");
+		String userId = sc.nextLine();
+		Member m = mc.checkId(userId);
+		if(m==null) {
+			System.out.println("삭제할 회원이 존재하지 않습니다.");
+		}else {
+			System.out.println("정말 삭제하시겠습니까?(Y/N)");
+			String yn = sc.nextLine().toUpperCase();
+			if(yn.equals("Y")) {
+				mc.deleteMember(userId);
+			}else if(yn.equals("N")) {
+				
+			}else {
+				System.out.println("잘못 입력하셨습니다.");
+			}
+		}
 	}
 	public void printAllMember() {
 		

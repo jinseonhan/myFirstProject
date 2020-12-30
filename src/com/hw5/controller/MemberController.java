@@ -76,7 +76,18 @@ public class MemberController {
 	}
 	
 	public void deleteMember(String userId) {
-		
+		for(int i =0;i<memberCount;i++) {
+			if(mem[i].getUserId().equals(userId)) {
+				mem[i]=null;
+				// 그리고 앞으로 당겨라
+				for(int j=i;j<memberCount;j++) {
+					mem[j]=mem[j+1];
+				}
+				mem[memberCount]=null;
+				memberCount--;
+				break;
+			}
+		}
 	}
 	
 	public Member[] sortIdAsc() {
