@@ -23,7 +23,7 @@ public class MemberController {
 	public Member checkId(String userId) {
 		Member m;
 		for(int i=0;i<memberCount;i++) {
-			if(mem[i].getUserId()==userId) {					
+			if(mem[i].getUserId().equals(userId)) {					
 				return m=mem[i];
 			}
 		}
@@ -39,9 +39,6 @@ public class MemberController {
 	
 	public Member searchMember(int menu, String search) {
 		Member searchMember =null;
-		
-		// 매개 변수로 받은 search 문자열을 menu번호에 따라
-		
 		if(menu==1) {
 			for(int i=0;i<memberCount;i++) {
 				if(mem[i].getUserId().equals(search)){
@@ -66,7 +63,16 @@ public class MemberController {
 	}
 	
 	public void updateMember(Member m, int menu, String update) {
-		
+		for(int i=0;i<memberCount;i++) {
+			if(mem[i]==m) {
+				switch(menu) {
+				case 1 : mem[i].setUserPwd(update);break;
+				case 2 : mem[i].setName(update);break;
+				case 3 : mem[i].setEmail(update);break;
+				}
+				System.out.println("회원정보가 변경되었습니다.");
+			}
+		}
 	}
 	
 	public void deleteMember(String userId) {

@@ -77,38 +77,65 @@ public class MemberMenu {
 	}
 	
 	public void searchMember() {
-		System.out.println("==== 회원 정보 검색 ====");
-		System.out.println("1. 아이디로 검색하기");
-		System.out.println("2. 이름으로 검색하기");
-		System.out.println("3. 이메일로 검색하기");
-		System.out.println("9. 이전 메뉴로");
-		System.out.println("메뉴 선택 : ");
-		int menu = sc.nextInt();
-		sc.nextLine();
-		System.out.println("검색 내용 : ");
-		String search = sc.nextLine();
-		
-		if(menu!=9){
-			Member m = mc.searchMember(menu, search);
-			if(m==null) {
-				System.out.println("검색된 결과가 없습니다.");
-			}else {
-				System.out.println(m.toString());
+		while(true) {
+			System.out.println("==== 회원 정보 검색 ====");
+			System.out.println("1. 아이디로 검색하기");
+			System.out.println("2. 이름으로 검색하기");
+			System.out.println("3. 이메일로 검색하기");
+			System.out.println("9. 이전 메뉴로");
+			System.out.println("메뉴 선택 : ");
+			int menu = sc.nextInt();
+			if(menu==9) {
+				break;
 			}
+			sc.nextLine();
+			System.out.println("검색 내용 : ");
+			String search = sc.nextLine();
 			
-		}else {
-			System.out.println("이전으로 돌아갑니다.");
-			return;
+			if(menu!=9){
+				Member m = mc.searchMember(menu, search);
+				if(m==null) {
+					System.out.println("검색된 결과가 없습니다.");
+				}else {
+					System.out.println(m.information());
+				}		
+			}else {
+				System.out.println("이전으로 돌아갑니다.");
+				return;
+			}	
 		}
-		
-		
-		
-		
-		
 	}
 	
 	public void updateMember() {
-		
+		while(true) {
+			System.out.println("====  회원 정보 수정 ====");
+			System.out.println("1. 비밀번호 수정");
+			System.out.println("2. 이름 수정");
+			System.out.println("3. 이메일 수정");
+			System.out.println("9. 이전 메뉴로");
+			System.out.println("메뉴 선택 : ");
+			int menu = sc.nextInt();
+			sc.nextLine();
+			if(menu==9) {
+				break;
+			}
+			System.out.println("변경할 회원 아이디");
+			String userId= sc.nextLine();
+			
+			Member m =mc.checkId(userId);
+			
+			if(m==null) {
+				System.out.println("변경할 회원이 존재하지 않습니다.");
+			}else {
+				System.out.println(m.information()); // 변경할 내용 출력
+				
+				System.out.println("어떻게 변경하시겠습니까?");
+				String update = sc.nextLine();
+				
+				mc.updateMember(m, menu, update);
+			}
+			
+		}
 	}
 	public void deleteMember() {
 		
