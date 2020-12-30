@@ -23,7 +23,7 @@ public class MemberMenu {
 			System.out.println("6.회원 정보 정렬");
 			System.out.println("9.프로그램 종료");
 			num=sc.nextInt();
-	
+			
 			switch(num) {
 				case 1 : inserMember();
 				break;
@@ -84,6 +84,7 @@ public class MemberMenu {
 		System.out.println("9. 이전 메뉴로");
 		System.out.println("메뉴 선택 : ");
 		int menu = sc.nextInt();
+		sc.nextLine();
 		System.out.println("검색 내용 : ");
 		String search = sc.nextLine();
 		
