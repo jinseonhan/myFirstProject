@@ -77,8 +77,35 @@ public class MemberMenu {
 	}
 	
 	public void searchMember() {
+		System.out.println("==== 회원 정보 검색 ====");
+		System.out.println("1. 아이디로 검색하기");
+		System.out.println("2. 이름으로 검색하기");
+		System.out.println("3. 이메일로 검색하기");
+		System.out.println("9. 이전 메뉴로");
+		System.out.println("메뉴 선택 : ");
+		int menu = sc.nextInt();
+		System.out.println("검색 내용 : ");
+		String search = sc.nextLine();
+		
+		if(menu!=9){
+			Member m = mc.searchMember(menu, search);
+			if(m==null) {
+				System.out.println("검색된 결과가 없습니다.");
+			}else {
+				System.out.println(m.toString());
+			}
+			
+		}else {
+			System.out.println("이전으로 돌아갑니다.");
+			return;
+		}
+		
+		
+		
+		
 		
 	}
+	
 	public void updateMember() {
 		
 	}

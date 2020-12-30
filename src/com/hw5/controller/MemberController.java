@@ -1,5 +1,7 @@
 package com.hw5.controller;
 
+import java.util.Scanner;
+
 import com.hw5.model.vo.Member;
 
 public class MemberController {
@@ -36,7 +38,31 @@ public class MemberController {
 	}
 	
 	public Member searchMember(int menu, String search) {
+		Member searchMember =null;
 		
+		// 매개 변수로 받은 search 문자열을 menu번호에 따라
+		
+		if(menu==1) {
+			for(int i=0;i<memberCount;i++) {
+				if(mem[i].getUserId().equals(search)){
+					searchMember = mem[i]; 
+				}
+			}
+		}else if(menu==2) {
+			for(int i=0;i<memberCount;i++) {
+				if(mem[i].getName().equals(search)){
+					searchMember = mem[i]; 
+				}
+			}
+		}else if(menu==3) {
+			for(int i=0;i<memberCount;i++) {
+				if(mem[i].getEmail().equals(search)){
+					searchMember = mem[i]; 
+				}
+			}
+		}
+		
+		return searchMember;
 	}
 	
 	public void updateMember(Member m, int menu, String update) {
