@@ -13,11 +13,7 @@ public class MemberController {
 		return memberCount;
 	}
 	public Member[] getMem() {
-		for(int i=0;i<memberCount;i++) {
-			if(mem[i]!=null) {
-				
-			}
-		}
+		return mem;
 	}
 	
 	public Member checkId(String userId) {
@@ -27,7 +23,7 @@ public class MemberController {
 				return m=mem[i];
 			}
 		}
-		return null;
+		return m=null;
 	}
 
 	public void insertMember(Member m) {
