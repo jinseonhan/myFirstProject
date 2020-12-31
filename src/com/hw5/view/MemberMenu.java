@@ -12,8 +12,8 @@ public class MemberMenu {
 	
 	public void mainMenu() {
 		// 메뉴 출력 >> 반복 처리
-		int num =0; // 반복문 실행을 위한 변수
-		while(num!=9){
+		while(true){
+			int num =0;
 			System.out.println("===== 회원 관리 메뉴 =====");
 			System.out.println("1.신규 회원 등록");
 			System.out.println("2.회원 정보 검색");
@@ -23,7 +23,6 @@ public class MemberMenu {
 			System.out.println("6.회원 정보 정렬");
 			System.out.println("9.프로그램 종료");
 			num=sc.nextInt();
-			sc.nextLine();
 			switch(num) {
 				case 1 : inserMember();
 				break;
@@ -39,6 +38,7 @@ public class MemberMenu {
 				break;
 				case 9 : System.out.println("프로그램을 종료합니다.");
 				return;
+				default : continue;
 			}
 		}
 	}
@@ -156,9 +156,44 @@ public class MemberMenu {
 		}
 	}
 	public void printAllMember() {
+		Member[] mem = mc.getMem();
+		for(int i=0;i<mem.length;i++) {
+			if(mem[i]!=null) {
+				System.out.println(mem[i].information());
+			}
+		}
 		
 	}
 	public void sortMember() {
+		Member[] sortMem=null; // 정렬 결과를 받아 줄 객체 배열 초기화
 		
+		while(true) {
+			System.out.println("==== 회원 정보 정렬 ====");
+			System.out.println("1. 아이디 오름차순 정렬");
+			System.out.println("2. 아이디 내림차순 정렬");
+			System.out.println("3. 나이 오름차순 정렬");
+			System.out.println("4. 나이 내림차순 정렬");
+			System.out.println("5. 성별 내림차순 정렬(남/여 순)");
+			System.out.println("9. 이전 메뉴로");
+			System.out.println("메뉴 선택 : ");
+			int menu = sc.nextInt();
+			sc.nextLine();
+			
+			switch(menu) {
+				case 1 : sortMem=mc.sortIdAsc(); break;
+				case 2 : sortMem=mc.sortIdDesc(); break;
+				case 3 : sortMem=mc.sortAgeAsc(); break;
+				case 4 : sortMem=mc.sortAgeDesc(); break;
+				case 5 : sortMem=mc.sortGenderDesc(); break;
+				case 9 : System.out.println("회원 정보 정렬을 나갑니다.");break;
+				default : continue;
+			}
+			
+			for(int i=0;i<sortMem.length;i++) {
+				if(sortMem[i]!=null) {
+					System.out.println(sortMem[i].information());
+				}
+			}
+		}
 	}
 }

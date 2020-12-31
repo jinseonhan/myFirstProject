@@ -13,6 +13,7 @@ public class MemberController {
 		return memberCount;
 	}
 	public Member[] getMem() {
+		
 		return mem;
 	}
 	
@@ -87,22 +88,69 @@ public class MemberController {
 	}
 	
 	public Member[] sortIdAsc() {
-		
+		for(int i=0; i<memberCount;i++) {
+			for(int j=i;j<memberCount-1;j++) {
+				Member temp =null;
+				if(mem[j].getUserId().compareTo(mem[j+1].getUserId())>0) {
+					temp=mem[j];
+					mem[j]=mem[j+1];
+					mem[j+1]=temp;
+				}
+			}
+		}
+		return mem;
 	}
 	
 	public Member[] sortIdDesc() {
-		
+		for(int i=0; i<memberCount;i++) {
+			for(int j=i;j<memberCount-1;j++) {
+				Member temp =null;
+				if(mem[j+1].getUserId().compareTo(mem[j].getUserId())>0) {
+					temp=mem[j];
+					mem[j]=mem[j+1];
+					mem[j+1]=temp;
+				}
+			}
+		}
+		return mem;
 	}
 	public Member[] sortAgeAsc() {
-		
-	}
-	public Member[] sortAgeAsc() {
-		
+		for(int i=0; i<memberCount;i++) {
+			for(int j=i;j<memberCount-1;j++) {
+				Member temp =null;
+				if(mem[j].getAge()>mem[j+1].getAge()) {
+					temp=mem[j];
+					mem[j]=mem[j+1];
+					mem[j+1]=temp;
+				}
+			}
+		}
+		return mem;
 	}
 	public Member[] sortAgeDesc() {
-		
+		for(int i=0; i<memberCount;i++) {
+			for(int j=i;j<memberCount-1;j++) {
+				Member temp =null;
+				if(mem[j].getAge()<mem[j+1].getAge()) {
+					temp=mem[j];
+					mem[j]=mem[j+1];
+					mem[j+1]=temp;
+				}
+			}
+		}
+		return mem;
 	}
 	public Member[] sortGenderDesc() {
-		
+		for(int i=0; i<memberCount;i++) {
+			for(int j=i;j<memberCount-1;j++) {
+				Member temp =null;
+				if(mem[j].getGender()<mem[j+1].getGender()) {
+					temp=mem[j];
+					mem[j]=mem[j+1];
+					mem[j+1]=temp;
+				}
+			}
+		}
+		return mem;
 	}
 }
