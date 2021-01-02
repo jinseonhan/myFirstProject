@@ -49,11 +49,11 @@ public class TourController {
 	
 	public void setMyMoney(int myMoney) {
 		// 여행객의 보유금액을 변경
-		tt.setMyMoney(myMoney);
+		tt.setMyMoney(tt.getMyMoney()-myMoney);
 	}
 	
 	public void setMymMile(int myMile) {
 		// 여행객의 마일리지 변경
-		tt.setMymile(myMile);
+		tt.setMymile(tt.getMyMile()-myMile);
 	}
 }
