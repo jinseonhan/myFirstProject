@@ -18,7 +18,7 @@ public class Airline {
 	}
 	
 	public int getMileage() {
-		return airfare;
+		return mileage;
 	}
 	
 	public int getAirfare() {

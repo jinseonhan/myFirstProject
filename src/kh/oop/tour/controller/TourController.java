@@ -54,6 +54,6 @@ public class TourController {
 	
 	public void setMymMile(int myMile) {
 		// 여행객의 마일리지 변경
-		tt.setMymile(tt.getMyMile()-myMile);
+		tt.setMymile(tt.getMyMile()+myMile);
 	}
 }
