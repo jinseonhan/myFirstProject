@@ -23,7 +23,7 @@ public class LibraryManager {
 	}
 	public Member myInfo() {
 		// 회원 레퍼런스(mem) 주소 값 리턴
-		return this.mem;
+		return mem;
 	}
 	
 	public Book[] selectAll() {
@@ -42,6 +42,7 @@ public class LibraryManager {
 				count++;
 			}
 		}
+		count=0;
 		// 전달받은 keyword를 포함하고 있으면 String 클래스의 contains()참고
 		// 검색결과의 도서 목록에 담기 : count 이용
 		
@@ -58,12 +59,14 @@ public class LibraryManager {
 		// result를 1로 초기화 => 대여불가
 		
 		if(bList[index] instanceof AniBook) {
-			if(((AniBook)bList[index]).getAccessAge()>) {
-				
+			if(((AniBook)bList[index]).getAccessAge()>myInfo().getAge()) {
+				result =1;
 			}
 		}else if(bList[index] instanceof CookBook){
 			if(((CookBook)bList[index]).getCoupon()==true) {
-				
+				// coupon  갯수 증가
+				mem.setCouponCount(mem.getCouponCount()+1);
+				result = 2;
 			}
 		}
 		// 전달받은 indxex의 bList객체가 요리책을 참조하고 있고
