@@ -17,7 +17,7 @@ public class TokenMenu {
 			System.out.println("===============");
 			System.out.println("메뉴 선택 : ");
 			int num = sc.nextInt();
-			
+			sc.nextLine();
 			switch(num) {
 			case 1 : tokenMenu();break;
 			case 2 : inputMenu(); break;
@@ -58,7 +58,9 @@ public class TokenMenu {
 		System.out.println("문자열을 입력하세요.");
 		String input = sc.nextLine();
 		System.out.print("첫 글자 대문자로 변환 : ");
-		System.out.println(tc.firstCap(input));
+		String output= tc.firstCap(input);
+		System.out.println(output);
+		
 	}
 	
 	

@@ -16,9 +16,11 @@ public class TokenController {
 	
 	public String firstCap(String input) {
 		// 매개변수로 받은 문자열의 첫 번째 글자를 대문자로 바꾼 문자열 반환
-		char first = (char) (input.charAt(0)-33);
+		char[] first = input.toCharArray();
+		first[0]=Character.toUpperCase(first[0]);
 		
-		return null;
+		
+		return new String(first);
 	}
 	
 	public int findChar(String input, char one) {
