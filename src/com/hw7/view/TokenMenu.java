@@ -60,6 +60,11 @@ public class TokenMenu {
 		System.out.print("첫 글자 대문자로 변환 : ");
 		String output= tc.firstCap(input);
 		System.out.println(output);
+		System.out.println("어떠한 문자가 몇개인지 알고 싶으신가요?(문자입력)");
+		char one=sc.nextLine().charAt(0);
+		System.out.println("문자열 "+input+"에는 "+ one+"이 "+tc.findChar(input, one)+"개 있습니다.");
+		
+		
 		
 	}
 	

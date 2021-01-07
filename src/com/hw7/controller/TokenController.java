@@ -25,6 +25,16 @@ public class TokenController {
 	
 	public int findChar(String input, char one) {
 		// 매개변수로 받은 문자열 중에서 매개변수로  들어온 문자가 몇 개 존재하는지  개수를 반환
-		return 0;
+		int count=0;
+		
+		char[] num= input.toCharArray();
+		
+		for(int i=0;i<num.length;i++) {
+			if(num[i]==one) {
+				count++;
+			}
+		}
+		
+		return count;
 	}
 }
