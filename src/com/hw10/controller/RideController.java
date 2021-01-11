@@ -36,11 +36,7 @@ public class RideController {
 		} catch (ArrayIndexOutOfBoundsException e) {// 배열의 크기를 넘어가면 발생되는 예외클래스 참조형 변수 e를 받는 매개변수 자리
 			// 문제가 바생한 해당 배열의 인덱스 번호가 몇번에서 발생하는지
 			// Throwable클래스의 getMessage()메소드를 통해 출력
-			e.printStackTrace();
-
-		} catch (Exception e) {// 배열의 크기를 넘어가면 발생되는 예외클래스 참조형 변수 e를 받는 매개변수 자리
-			// 문제가 발생한 해당 배열의 인덱스 번호가 몇번에서 발생하는지
-			// Throwable클래스의 getMessage()메소드를 통해 출력
+			System.out.println(e.getMessage());
 
 		}finally {
 			// "인원이 가득 찼습니다. 다음 차례를 기다리세요"
@@ -54,5 +50,6 @@ public class RideController {
 	
 	public void getMessage() {
 		System.out.println("문제가 발생한 해당 배열의 인덱스 번호 : ");
+		System.out.println("인원이 가득찼습니다.다음차례를 기다리세요.");
 	}
 }
