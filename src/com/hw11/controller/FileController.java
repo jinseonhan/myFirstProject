@@ -1,31 +1,62 @@
 package com.hw11.controller;
 
+import java.io.BufferedWriter;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.io.OutputStreamWriter;
 import java.util.Scanner;
+
+import com.sun.imageio.spi.OutputStreamImageOutputStreamSpi;
 
 public class FileController {
 	Scanner sc= new Scanner(System.in);
 	
 	public FileController() {}
 	
-	public void fileSave() {
+	public void fileSave() throws IOException {
 		// 어떤 파일에 어떤 내용을 저장할지 입력 받아 파일 출력을 실행하는 메소드
 		StringBuilder sb = new StringBuilder();
 		// "파일에 저장할 내용을 입력하시오("exit"을 입력하면 내용 입력 끝);
+		while(true) {
+			System.out.println("파일에 저장할 내용을 입력하세요.");
+			String str = sc.nextLine();
+			if(str.equals("exit")) {
+				System.out.println("지금까지 내용을 저장하시겠습니까?");
+				str=sc.nextLine();
+				str.toUpperCase();
+				if(str.equals("Y")) {
+					System.out.println("지금까지 내용을 파일에 저장합니다."); break;
+				}
+			}else {
+				sb.append(str);
+			}
+		
+		}
 		// 값을 scannner로 입력 받아 StringBuilder에 저장하고, "exit"을 입력 했을 시 빠져나가는 while문 생성
 		
 		// "저장하시겠습니까(Y/N)"
-		// 입력 받은 값이 대문자이든 소문자이든 상ㅇ관없이 "y"이면,
+		// 입력 받은 값이 대문자이든 소문자이든 상관없이 "y"이면,
 		// 저장할 파일명을 입력받음
+		String fileName;
+		BufferedWriter fw = null;
 		try {
+			System.out.println("저장할 파일명을 입력하세요.");
+			fileName=sc.nextLine();
+			fw = new BufferedWriter(new FileWriter("C:/download/"+fileName+"txt"));
+			fw.write(sb.toString());
+			
 			
 		}catch(IOException e) {
 			e.printStackTrace();
 		}finally {
 			// 열었던 스트림 close
+			fw.flush();
+			fw.close();
 		}
 		// 입력 받은 값이 Y가 아닌 어떤 값이든 "다시 메뉴로 돌아갑니다." 출력과 메소드
+		System.out.println("종료하시겠습니까?");
+		char ch=sc.nextLine().charAt(0);
 		// 종료
 	}
 	
@@ -67,7 +98,5 @@ public class FileController {
 		}
 		
 	}
-	
-	
 	
 }
