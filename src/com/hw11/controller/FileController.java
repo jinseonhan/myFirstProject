@@ -24,14 +24,14 @@ public class FileController {
 			if(str.equals("exit")) {
 				System.out.println("지금까지 내용을 저장하시겠습니까?");
 				str=sc.nextLine();
-				str.toUpperCase();
+				str=str.toUpperCase();
+				System.out.println(str);
 				if(str.equals("Y")) {
 					System.out.println("지금까지 내용을 파일에 저장합니다."); break;
 				}
 			}else {
-				sb.append(str);
+				sb.append(str+"\r\n");
 			}
-		
 		}
 		// 값을 scannner로 입력 받아 StringBuilder에 저장하고, "exit"을 입력 했을 시 빠져나가는 while문 생성
 		
@@ -43,7 +43,7 @@ public class FileController {
 		try {
 			System.out.println("저장할 파일명을 입력하세요.");
 			fileName=sc.nextLine();
-			fw = new BufferedWriter(new FileWriter("C:/download/"+fileName+"txt"));
+			fw = new BufferedWriter(new FileWriter("C:/download/"+fileName+".txt"));
 			fw.write(sb.toString());
 			
 			
@@ -55,9 +55,29 @@ public class FileController {
 			fw.close();
 		}
 		// 입력 받은 값이 Y가 아닌 어떤 값이든 "다시 메뉴로 돌아갑니다." 출력과 메소드
-		System.out.println("종료하시겠습니까?");
+		while(true) {
+		System.out.println("종료하시겠습니까?(Y/N)");
 		char ch=sc.nextLine().charAt(0);
 		// 종료
+		
+		if(ch=='y') {
+			ch-=32;
+		}else if(ch=='n') {
+			ch-=32;
+		}
+		System.out.println(ch);
+		
+			if(ch=='Y') {
+				System.out.println("파일저장을 종료합니다.");
+				break;
+			}else if(ch=='N') {
+				fileSave();
+			}else {
+				System.out.println("잘못입력하셨습니다. 다시입력해주세요.");
+				
+			}
+			
+		}
 	}
 	
 	public void fileOpen() {

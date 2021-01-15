@@ -1,11 +1,12 @@
 package com.hw11.run;
 
+import java.io.IOException;
 import java.util.Scanner;
 
 import com.hw11.controller.FileController;
 
 public class NoteMenu {
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
 		Scanner sc= new Scanner(System.in);
 		FileController fc = new FileController();
 		
