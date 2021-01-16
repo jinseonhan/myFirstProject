@@ -35,7 +35,7 @@ public class RideController {
 
 		} catch (ArrayIndexOutOfBoundsException e) {// 배열의 크기를 넘어가면 발생되는 예외클래스 참조형 변수 e를 받는 매개변수 자리
 			// 문제가 바생한 해당 배열의 인덱스 번호가 몇번에서 발생하는지
-			// Throwable클래스의 getMessage()메소드를 통해 출력
+			// Throwable클래스의 getMessage()메소드를 통해 출력  
 			System.out.println(e.getMessage());
 
 		}finally {
