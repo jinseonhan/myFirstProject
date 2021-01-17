@@ -2,6 +2,7 @@ package com.hw11.controller;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -21,10 +22,10 @@ public class FileController {
 		StringBuilder sb = new StringBuilder();
 		// "파일에 저장할 내용을 입력하시오("exit"을 입력하면 내용 입력 끝);
 		while(true) {
-			System.out.println("파일에 저장할 내용을 입력하세요.");
+			System.out.println("파일에 저장할 내용을 입력하세요.(종료 : 'exit')");
 			String str = sc.nextLine();
 			if(str.equals("exit")) {
-				System.out.println("지금까지 내용을 저장하시겠습니까?");
+				System.out.println("지금까지 내용을 저장하시겠습니까?(저장 : 'y')");
 				str=sc.nextLine();
 				str=str.toUpperCase();
 				System.out.println(str);
@@ -45,7 +46,15 @@ public class FileController {
 		try {
 			System.out.println("저장할 파일명을 입력하세요.");
 			fileName=sc.nextLine();
-			fw = new BufferedWriter(new FileWriter("C:/download/"+fileName+".txt"));
+			
+			// 폴더 경로 지정 및 폴더 생성하기
+			String path = "C:\\download\\";
+			File folder = new File(path);
+			
+			if(!folder.exists()) {
+				folder.mkdir();
+			}
+			fw = new BufferedWriter(new FileWriter(path+fileName+".txt"));
 			fw.write(sb.toString());
 			
 			
@@ -109,16 +118,43 @@ public class FileController {
 	
 	public void fileEdit() {
 		// FileController 클래스 객체 생성 후 각 메소드를 메뉴 선택에 따라 실행
-		
 		// "수정할 파일명 : "
+		System.out.println("수정할 파일명 : ");
+		String fileName = sc.nextLine();
 		// 파일명을 입력받아 BufferedReader와 bufferedWriter, FileReader와 FileWriter
+		BufferedReader br = null;
 		// 스트림 사용
+		StringBuilder sb =new StringBuilder();
+		String path ="C:\\download\\";
+		BufferedWriter fw=null;
 		
 		try {
 			// 반복문을 통해 해당 파일의 내용을 readLine()메소드를 통해 콘솔에 출력
-			// "파일에 추가할 내용을 입력하시오 : "
-			// 사용자가 "exit"를 입력하기 전까지 내용을 StringBuilder에 담는다.
+			br = new BufferedReader(new FileReader(path+fileName+".txt"));
+			sb.append(br.readLine());
 			
+			String str="";
+			
+			while(true) {
+				// "파일에 추가할 내용을 입력하시오 : "
+				System.out.println("파일에 출가할 내용을 입력하세요. :(종료 : 'exit')");
+				// 사용자가 "exit"를 입력하기 전까지 내용을 StringBuilder에 담는다.
+				str=sc.nextLine();
+				sb.append(str+"\r\n");
+				
+				
+				System.out.println("더 추가하시겠습니까?(Y/N)");
+				str=sc.nextLine().toUpperCase();
+				
+				switch(str) {
+				case "N" : fw = new BufferedWriter(new FileWriter(path+fileName+".txt"));
+								fw.write(sb.toString()); 
+								System.out.println(sb.toString());
+								System.out.println("파일의 내용이 변경되었습니다."); 
+								return;
+				
+				}
+			}
 			// "변경된 내용을 파일에 추가하시겠습니까?(y/n)"
 			// 입력받은 값이 대문자이든 소문자이든 상관없이 "y"이면,
 			// "입력받은 파일명. txt파일의의 내용이 변경되었습니다." 출력과 저장
@@ -128,6 +164,16 @@ public class FileController {
 			e.printStackTrace();
 		}finally {
 			// 열었던 스트림 close
+			try {
+				br.close();
+				fw.flush();
+				fw.close();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			
 		}
 		
 	}
