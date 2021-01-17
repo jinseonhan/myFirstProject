@@ -1,7 +1,9 @@
 package com.hw11.controller;
 
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
@@ -82,15 +84,26 @@ public class FileController {
 	
 	public void fileOpen() {
 		// 원하는 파일을 파일 입력 후 콘솔 화면에 출력하는 메소드
-		
 		// "열기 할 파일명 : "
 		// 파일명을 sCANNER로 입력받아 , bUFFEREDrEADER와 FileReader스트림 사용
+		System.out.println("오픈할 파일명 : ");
+		String fileName = sc.nextLine();
+		BufferedReader br = null;
 		try {
 			// try구문 안에서 readLine()메소드를 통해 한줄씩 콘솔로 입력받은 값 출력
+			br = new BufferedReader(new FileReader("C:/download/"+fileName+".txt"));
 		}catch(IOException e) {
 			e.printStackTrace();
 		}finally {
 			// 열었던 슽트림 close
+			try {
+				System.out.println(br.readLine());
+				br.close();
+			} catch (IOException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+			
 		}
 	}
 	
