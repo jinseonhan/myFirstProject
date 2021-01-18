@@ -136,9 +136,9 @@ public class FileController {
 		try {
 			// 반복문을 통해 해당 파일의 내용을 readLine()메소드를 통해 콘솔에 출력
 			br = new BufferedReader(new FileReader(path+fileName+".txt"));
+			
 			sb.append(br.readLine());
-			
-			
+
 			while(true) {
 				// "파일에 추가할 내용을 입력하시오 : "
 				System.out.println("파일에 출가할 내용을 입력하세요. :(종료 : 'exit')");
