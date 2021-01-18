@@ -24,16 +24,20 @@ public class FileController {
 		while(true) {
 			System.out.println("파일에 저장할 내용을 입력하세요.(종료 : 'exit')");
 			String str = sc.nextLine();
+			
 			if(str.equals("exit")) {
+				
 				System.out.println("지금까지 내용을 저장하시겠습니까?(저장 : 'y')");
 				str=sc.nextLine();
 				str=str.toUpperCase();
-				System.out.println(str);
 				if(str.equals("Y")) {
-					System.out.println("지금까지 내용을 파일에 저장합니다."); break;
+					System.out.println("지금까지 내용을 파일에 저장합니다."); 
+					
+					break;
 				}
 			}else {
-				sb.append(str+"\r\n");
+				sb.append(str);
+				sb.append(System.getProperty("line.separator"));
 			}
 		}
 		// 값을 scannner로 입력 받아 StringBuilder에 저장하고, "exit"을 입력 했을 시 빠져나가는 while문 생성
@@ -98,18 +102,19 @@ public class FileController {
 		System.out.println("오픈할 파일명 : ");
 		String fileName = sc.nextLine();
 		BufferedReader br = null;
+		StringBuilder sb= new StringBuilder();
 		try {
 			// try구문 안에서 readLine()메소드를 통해 한줄씩 콘솔로 입력받은 값 출력
 			br = new BufferedReader(new FileReader("C:/download/"+fileName+".txt"));
+			sb.append(br.readLine());
+			System.out.println(sb);
 		}catch(IOException e) {
 			e.printStackTrace();
 		}finally {
 			// 열었던 슽트림 close
 			try {
-				System.out.println(br.readLine());
 				br.close();
 			} catch (IOException e1) {
-				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}
 			
@@ -133,14 +138,17 @@ public class FileController {
 			br = new BufferedReader(new FileReader(path+fileName+".txt"));
 			sb.append(br.readLine());
 			
-			String str="";
 			
 			while(true) {
 				// "파일에 추가할 내용을 입력하시오 : "
 				System.out.println("파일에 출가할 내용을 입력하세요. :(종료 : 'exit')");
 				// 사용자가 "exit"를 입력하기 전까지 내용을 StringBuilder에 담는다.
-				str=sc.nextLine();
-				sb.append(str+"\r\n");
+				String str=sc.nextLine();
+				
+				if(!str.equals("exit"))
+				sb.append(str);
+				
+				sb.append(System.getProperty("line.separator"));
 				
 				
 				System.out.println("더 추가하시겠습니까?(Y/N)");
@@ -148,7 +156,7 @@ public class FileController {
 				
 				switch(str) {
 				case "N" : fw = new BufferedWriter(new FileWriter(path+fileName+".txt"));
-								fw.write(sb.toString()); 
+								fw.write(sb.toString());
 								System.out.println(sb.toString());
 								System.out.println("파일의 내용이 변경되었습니다."); 
 								return;
