@@ -20,7 +20,6 @@ public class RideController {
 		// (guests[] onBooard)
 		onboard = new Guests[RollerCoaster.PERMITNUMBER];			
 		int count=0;
-		int sum=0;
 		try {
 			// for문과 if문을 통해 RollerCoaster클래스의 허용키 상수값 크기
 			// 이상인 사람을 Guests객체 배열 onBoard에 담는다
