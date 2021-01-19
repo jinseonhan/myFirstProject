@@ -71,17 +71,16 @@ public class FileController {
 		}
 		// 입력 받은 값이 Y가 아닌 어떤 값이든 "다시 메뉴로 돌아갑니다." 출력과 메소드
 		while(true) {
-		System.out.println("종료하시겠습니까?(Y/N)");
-		char ch=sc.nextLine().charAt(0);
-		// 종료
+			System.out.println("종료하시겠습니까?(Y/N)");
+			char ch=sc.nextLine().charAt(0);
 		
-		if(ch=='y') {
-			ch-=32;
-		}else if(ch=='n') {
-			ch-=32;
-		}
-		System.out.println(ch);
-		
+			
+			if(ch=='y') {
+				ch-=32;
+			}else if(ch=='n') {
+				ch-=32;
+			}
+						
 			if(ch=='Y') {
 				System.out.println("파일저장을 종료합니다.");
 				break;
