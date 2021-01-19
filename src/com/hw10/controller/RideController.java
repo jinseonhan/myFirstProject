@@ -13,7 +13,7 @@ public class RideController {
 		
 		// 4명의 탑승 대기자를 생성자를 통한 GUest객체 배열 초기화(Guests[] gs)
 		// RollerCoaster클래스의 허용인원 상수값 크기의 또 다른 객체 배열 생성
-
+		
 		RollerCoaster.CUTHEIGHT=120;
 		RollerCoaster.PERMITNUMBER=2;
 		RollerCoaster.PRICE=9000;
