@@ -4,6 +4,6 @@ import com.hw10.controller.RideController;
 
 public class Run {
 	public static void main(String[] args) {
-		new RideController();
+		new RideController().cutGuests();
 	}
 }
