@@ -28,7 +28,7 @@ class Solution2 {
         	}
         }
         
-        return answer=true;
+        return answer;
     }
     
     
