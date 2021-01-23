@@ -19,7 +19,7 @@ class Solution2 {
 					return false;
 			}
 		}
-
+   
 		return answer;
 	}
 
