@@ -12,6 +12,7 @@ class Solution3 {
         for(int i=0; i<clothes.length; i++) {
         	// 3. 의상 종류, 갯수
         	clothesMap.put(clothes[i][1], clothesMap.getOrDefault(clothes[i][1], 0)+1);
+        	// getOrDefault(Object key, V defaultValue) : 찾는 키가 존재한다면 찾는 키의 값을 반환하고 없다면 기본 값을 반환한다.
         }
         
         // 4. 조합
@@ -21,6 +22,6 @@ class Solution3 {
         	answer*=clothesMap.get(key)+1;
         }
         
-        return answer-1; // answer에서 아무것도 안입었을 경우의 수를 제거
+        return answer-1; // 5. answer에서 아무것도 안입었을 경우의 수를 제거
     }
 }
