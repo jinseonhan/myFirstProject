@@ -1,5 +1,7 @@
 package programers.codingtest.stackQ;
 
+import java.util.Stack;
+
 //  1.스택이란 ? : 한쪽 끝에서만 자료를 넣고 뺄 수 있는 LIFO형식의 자료구조
 //  2.주요 메소드
 // pop(): 스택에서 가장 위에 있는 항목을 제거한다.
@@ -20,12 +22,30 @@ package programers.codingtest.stackQ;
 // 수식의 괄호 검사 (연산자 우선순위 표현을 위한 괄호 검사)
 
 public class Solution1 {
-	 public int[] solution(int[] prices) {
-	        int[] answer = {};
-	        // 1. 총 증가한 i값을 담을 변수가 필요
-	        // ???
-	        	// 스택 어쩌라는거야?
-	        // 4다음 숫자는 뭐임?
-	        return answer;
-	    }
+	public static void main(String[] args) {
+		new Solution1().solution();
+	}
+	
+	 public void solution() {
+		int[] prices= {1,2,3,2,3};
+        int[] answer = new int[prices.length];
+//        Stack<Integer> st = new Stack<>();
+        
+//        for(int j=prices.length-1;j>=0;j--) {
+//        	st.push(prices[j]);
+//        }
+        int num=0;
+        int count=0; // 떨어지는 시점을 계산하는 변수
+        for(int i=0;i<prices.length;i++) {
+        	if(prices[num]>prices[i]||) {
+        		answer
+        		continue;
+        	}else {
+        		
+        	}
+        }
+        	
+//        System.out.println(st.toString());
+   
+    }
 }
