@@ -72,28 +72,28 @@ public class Solution1 {
 	}
 }
 
-
-class Solution {
-	public int[] solution(int[] prices) {
-		int[] answer = new int[prices.length];
-		int count=1; // 떨어지는 시점을 반환할 변수
-		int temp=0; // 시작 값을 담을 변수
-		
-		for(int num=0;num<prices.length;num++) {
-			temp=prices[num];
-			for(int i=num+1;i<prices.length;i++) {
-				
-				if(temp>prices[i]) {        			
-					answer[num]=count;
-					break;
-				}else {
-					answer[num]=count;
-					count++;        			
-				}
-			}
-
-			count=1;
-		}
-		return answer;
-	}
-}
+// 프로그래머스 제출 답변
+//class Solution {
+//	public int[] solution(int[] prices) {
+//		int[] answer = new int[prices.length];
+//		int count=1; // 떨어지는 시점을 반환할 변수
+//		int temp=0; // 시작 값을 담을 변수
+//		
+//		for(int num=0;num<prices.length;num++) {
+//			temp=prices[num];
+//			for(int i=num+1;i<prices.length;i++) {
+//				
+//				if(temp>prices[i]) {        			
+//					answer[num]=count;
+//					break;
+//				}else {
+//					answer[num]=count;
+//					count++;        			
+//				}
+//			}
+//
+//			count=1;
+//		}
+//		return answer;
+//	}
+//}
