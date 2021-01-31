@@ -19,7 +19,7 @@ public class Solution2 {
 		int[] progresses = {95,90,99,99,80,90};
 		int[] speeds = {1,1,1,1,1,1};
 		int[] answer= {};
-		int[] speedsUp = new int[speeds.length];
+		int[] speedsUp = speeds.clone();
 		
 		int count=0;
 		int out=0;
@@ -28,17 +28,13 @@ public class Solution2 {
 		// que에  담는다.
 		
 		// speed를 증가
-		while(count<=progresses.length) {
+		while(count<progresses.length) {
 			// speed를 더할 변수
-			for(int i=0;i<progresses.length;i++) {
-				speedsUp[i]+=speeds[i];
-			}
-			
-			// count는 빠진값을 제외하고 그 다음값 부터 세기 위한 변수
-			for(int j=count;j<progresses.length;j++) {
-				if(progresses[j]>=100) {
+			for(int i=count;i<progresses.length;i++) {
+				if(progresses[i]+speedsUp[i]>=100) {
 					out++;
 				}
+				speedsUp[i]+=speeds[i];
 			}
 				q.add(out); // 한번에 빠져나간 갯수를 q 에 담는다.
 				count+=out; // 이미 빠진것을 제외시킴
@@ -46,11 +42,8 @@ public class Solution2 {
 		}
 		answer = new int[q.size()];
 		for(int z=0;z<answer.length;z++) {
+			System.out.println(q.poll());
 			answer[z]=q.poll();
-		}
-		for(int k=0;k<answer.length;k++) {
-			System.out.println(answer[k]);
-			
 		}
 	}
 	
