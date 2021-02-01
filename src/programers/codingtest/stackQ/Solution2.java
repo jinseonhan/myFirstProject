@@ -31,19 +31,31 @@ public class Solution2 {
 		while(count<progresses.length) {
 			// speed를 더할 변수
 			for(int i=count;i<progresses.length;i++) {
-				if(progresses[i]+speedsUp[i]>=100) {
-					out++;
-				}
 				speedsUp[i]+=speeds[i];
+				if(progresses[i]+speedsUp[i]>=100) { // -1도 포함됨 , 연속되지를 않네
+					// 연속되게 만들어야함
+					if(i==0) {
+						out++;
+					}
+					else if(i>=0&&progresses[i-1]+speedsUp[i-1]>=100) {
+						out++;						
+					}					
+				}
 			}
-				q.add(out); // 한번에 빠져나간 갯수를 q 에 담는다.
-				count+=out; // 이미 빠진것을 제외시킴
-				out=0; // out를 초기화
+			if(out!=0) {	
+				q.offer(out); // 한번에 빠져나간 갯수를 q 에 담는다.
+			}
+			count+=out; // 이미 빠진것을 제외시킴
+			out=0; // out를 초기화
 		}
-		answer = new int[q.size()];
+		answer = new int[q.size()]; // q의 사이즈가 지정이 되었기 때문에 출력용 answer의 크기를 지정할 수 있다.
+		
+		System.out.println("q의 사이즈는? "+q.size());
 		for(int z=0;z<answer.length;z++) {
-			System.out.println(q.poll());
-			answer[z]=q.poll();
+			
+			answer[z]=q.peek();
+			System.out.println("q의 값 나열 : "+answer[z]);
+			q.poll();
 		}
 	}
 	
