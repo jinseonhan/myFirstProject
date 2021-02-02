@@ -18,38 +18,42 @@ public class Solution2 {
 		
 		int[] progresses = {95,90,99,99,80,90};
 		int[] speeds = {1,1,1,1,1,1};
-		int[] answer= {};
-		int[] speedsUp = speeds.clone();
+		int[] answer= {};		
+		
+		// 메소드를 따로 빼서 할까?
 		
 		int count=0;
 		int out=0;
+		public 
+	}
+
+	public int[] cal() {
 		
-		// i라는 변수를 증가시켜서 앞에를 쳐내고
-		// que에  담는다.
-		
-		// speed를 증가
 		while(count<progresses.length) {
+			speedUp();
 			// speed를 더할 변수
+			// 값들을 1씩 증가시켜야함 progresses[i]+=speeds[i];
 			for(int i=count;i<progresses.length;i++) {
-				speedsUp[i]+=speeds[i];
-				if(progresses[i]+speedsUp[i]>=100) { // -1도 포함됨 , 연속되지를 않네
+				if(progresses[i]>=100) { // -1도 포함됨 , 연속되지를 않네
 					// 연속되게 만들어야함
-					if(i==0) {
+					if(i==0&&progresses[i]>=100) { // i가 0일때 out++
 						out++;
-					}
-					else if(i>=0&&progresses[i-1]+speedsUp[i-1]>=100) {
+					}else if(i>0&&progresses[i]>=100) { // i가 1보다 클 때 out++
 						out++;						
-					}					
+					}else if(i>0&&progresses[i]<100) {
+						
+						continue;
+					}
 				}
 			}
 			if(out!=0) {	
 				q.offer(out); // 한번에 빠져나간 갯수를 q 에 담는다.
+				count+=out; // 이미 빠진것을 제외시킴
+				out=0; // out를 초기화
 			}
-			count+=out; // 이미 빠진것을 제외시킴
-			out=0; // out를 초기화
 		}
 		answer = new int[q.size()]; // q의 사이즈가 지정이 되었기 때문에 출력용 answer의 크기를 지정할 수 있다.
-		
+		System.out.println("q에 담은 값은? "+q);
 		System.out.println("q의 사이즈는? "+q.size());
 		for(int z=0;z<answer.length;z++) {
 			
@@ -58,5 +62,9 @@ public class Solution2 {
 			q.poll();
 		}
 	}
+	public void speedUp() {
+		
+	}
+	
 	
 }
