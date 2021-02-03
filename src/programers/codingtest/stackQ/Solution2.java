@@ -25,7 +25,7 @@ public class Solution2 {
 		int count=0;
 		int out=0;
 	}
-
+	// 메소드
 	public int[] cal() {
 		
 		while(count<progresses.length) {
