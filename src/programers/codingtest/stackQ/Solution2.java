@@ -24,7 +24,6 @@ public class Solution2 {
 		
 		int count=0;
 		int out=0;
-		public 
 	}
 
 	public int[] cal() {
