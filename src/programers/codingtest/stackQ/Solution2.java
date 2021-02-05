@@ -24,12 +24,9 @@ public class Solution2 {
 		
 		int count=0;
 		int out=0;
-	}
+	
 	// 메소드
-	public int[] cal() {
-		
 		while(count<progresses.length) {
-			speedUp();
 			// speed를 더할 변수
 			// 값들을 1씩 증가시켜야함 progresses[i]+=speeds[i];
 			for(int i=count;i<progresses.length;i++) {
