@@ -26,6 +26,7 @@ import java.util.Queue;
 
 public class Solution2 {
 	public static void main(String[] args) {
+		// 실행문
 		new Solution2().solution();
 	}
 	
