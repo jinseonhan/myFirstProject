@@ -25,6 +25,8 @@ public class Solution3 {
 		Queue<Integer> totalWeight = new LinkedList<>(); // 다리 총 중량
 		// 대기 트럭들을 que에 옮겨 담는다.
 		
+		//다시생각하자 210209
+		
 		Queue<Integer> queDelay = new LinkedList<Integer>(); // 대기 트럭
 		// 트럭정보를 queDelay로 옮겨담기
 		for(int i=0;i<truck_weights.length;i++) {
