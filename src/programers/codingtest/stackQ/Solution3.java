@@ -33,20 +33,21 @@ public class Solution3 {
 			queDelay.add(i);
 		} 	
 			// 건너기 시작하는 초기값 세팅
-			totalWeight.add(queDelay.peek());
-			startTime.add(answer);
-			limitWeight=queDelay.peek();
-			queDelay.remove();
+//			totalWeight.add(queDelay.peek()); // 차량의 무게
+//			startTime.add(answer);	// 차량이 올라간 시간
+//			limitWeight=queDelay.peek();	// 다리의 중량 
+//			queDelay.remove();	// 대기 트럭
 		while(queDelay.size()>0||startTime.size()>0) { // 큐의 값이 모두 null이 될때까지 반복
-			answer++; // 1초 가 지나감			
-			if(queDelay.size()!=0) {
-				limitWeight+=queDelay.peek(); // 현재 중량을 늘리고
+			answer++; // 1초 가 지나감		
+			
+			if(queDelay.size()!=0) { // 트럭을 다리에 올리기
 				totalWeight.add(queDelay.peek()); // 트럭의 무게를 담는다.
 				startTime.add(answer); // 차량이 건너는 시작시간을 answer에 넣는다.
+				limitWeight+=queDelay.peek(); // 현재 중량을 늘리고
 				queDelay.remove();			// 트럭을 내보낸다.	
 			}
-			// 다리로 건너기
-			if(limitWeight+queDelay.peek()<=weight) { // 트럭이 추가로 건널수 있을지 확인
+
+			if(limitWeight+queDelay.peek()<=weight) { // 트럭이 추가로 건널수 있을지 확인하고 다리에 트럭 올리기
 				// 다리에서 트럭 제거하기
 				if(totalWeight.size()>=0&&bridge_length<answer-startTime.peek()) { // 트럭이 다리를 완전히 건널 때
 					
