@@ -1,13 +1,11 @@
 package programers.codingtest.heap;
 
 import java.util.Collections;
-import java.util.HashMap;
 import java.util.LinkedList;
-import java.util.Map;
 import java.util.PriorityQueue;
 import java.util.Queue;
 
-class workT{
+class workT implements Comparable<workT>{
 	int it; // 입력 시간
 	int wt; // 작업 시간
 	int st; // 작업 시작시간
@@ -36,12 +34,26 @@ class workT{
 		this.wt = wt;
 		this.st = st;
 	}
+	@Override
+	public int compareTo(workT w1) {
+		if(this.wt==w1.wt) {
+			if(this.it>w1.it) {
+				return 1;
+			}else {
+				return -1;
+			}
+		}else if(this.wt>w1.wt) {
+			return 1;
+		}else {
+			return -1;
+		}
+	}
 	
 }
 
 public class Solution2 {
 	
-	public void solution1() {
+	public int solution1() {
 		int answer=0; // 평균 대기 시간
 		int now=0; // 흘러가는 시간
 		
@@ -67,20 +79,25 @@ public class Solution2 {
 		while(working.size()!=0) {
 			// 시간 증가
 			now++;
-			// 3-1. 시간이 되면 나오기
+			// 3-1. [작업 큐]작업이 종료되면 큐에서 뺀다
 			if(working.size()!=0&&working.peek().getIt()+working.peek().getWt()==now) {
 				answer+=now-working.peek().getIt(); // 현재시간 - 대기큐에 입력된 시간
 				working.poll(); // 작업 큐를 비운다.
 			}
 			
-			// 2. 시간이 되면 대기 큐에 넣는다.
+			// 2. [대기 큐]시간이 되면 배열->대기 큐에 넣는다.
 			if(jobs[now][1]==now) {
-				delay.offer(new workT(jobs[now][0], jobs[now][1], now));
+				delay.offer(new workT(jobs[now][0], jobs[now][1], now)); // 대기큐 입력시간, 작업시간, 대기큐에 들어간 시간
 			}			
-			// 3. 기존 작업이 끝나면 대기 큐에 있는 것 중 우선순위는 처리시간이 짧은 것을 먼저 처리한다.
-			// 객체의 우선순위를 어떻게 알지??
+			// 3. [대기큐][작업큐] 대기 큐에 있는 것 중 우선순위가 높은 것을 작업큐로 옮긴다.
+			
 			if(working.size()==0) {
-				// 대기 큐에서 우선순위가 높은 것을 작업 큐에 넣는다.
+				if(delay.size()==1) {
+					working.offer(delay.poll());
+				}else if(delay.size()>1) {
+					working.offer(delay.poll().compareTo()); //*** 여기에서 delay에 있는 값을 비교해야함. compareTo 메소드 사용
+				}
+				
 			}
 			// 3-2. 시간이 되면 넣기
 			
@@ -97,8 +114,7 @@ public class Solution2 {
 		// 작업을 종료하고 새로운 작업을 시작할 때 offer -> 남은 것들 중 value값이 가장 작은 것 부터 넣는다.
 		
 		
-		
-//		return answer/jobs.length;
+			return answer/jobs.length;
 	}
 	
 	public static void main(String[] args) {
