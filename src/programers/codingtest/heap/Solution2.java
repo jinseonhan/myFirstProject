@@ -95,7 +95,7 @@ public class Solution2 {
 				if(delay.size()==1) {
 					working.offer(delay.poll());
 				}else if(delay.size()>1) {
-					working.offer(delay.poll().compareTo()); //*** 여기에서 delay에 있는 값을 비교해야함. compareTo 메소드 사용
+					working.offer(delay.poll().getWt()); //*** 여기에서 delay에 있는 값을 비교해야함. compareTo 메소드 사용??
 				}
 				
 			}
