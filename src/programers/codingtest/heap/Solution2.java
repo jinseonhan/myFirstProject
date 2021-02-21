@@ -97,7 +97,7 @@ public class Solution2 {
 				}else if(delay.size()>1) {
 					working.offer(delay.poll().getWt()); //*** 여기에서 delay에 있는 값을 비교해야함. compareTo 메소드 사용??
 				}
-				
+				//오늘은 쉽니다
 			}
 			// 3-2. 시간이 되면 넣기
 			// 어허
