@@ -34,18 +34,17 @@ class workT implements Comparable<workT>{
 		this.wt = wt;
 		this.st = st;
 	}
-	@Override
+	/**
+	 * 우선순위 조건
+	 */
+	@Override 
 	public int compareTo(workT w1) {
-		if(this.wt==w1.wt) {
-			if(this.it>w1.it) {
-				return 1;
-			}else {
-				return -1;
-			}
-		}else if(this.wt>w1.wt) {
+		if(this.wt<w1.getWt()) {
+			return -1;
+		}else if(this.wt>w1.getWt()) {
 			return 1;
 		}else {
-			return -1;
+			return 0;
 		}
 	}
 	
@@ -57,26 +56,28 @@ public class Solution2 {
 		int answer=0; // 평균 대기 시간
 		int now=0; // 흘러가는 시간
 		
-		int[][] jobs = {{0,3},{1,9},{2,6}}; // [입력 시간]과 [작업 시간]
+		int[][] jobs = {{0,3},{2,6},{1,9}}; // [입력 시간]과 [작업 시간]
 		PriorityQueue<workT> delay  = new PriorityQueue<>(Collections.reverseOrder()); // 대기 큐
 		Queue<workT> working = new LinkedList<>(); // 작업 큐
 		//workT w = new workT();
-		int temp=0;// 정렬용 임시 변수
+		int temp[];// 정렬용 임시 변수
 		
 		// 1. 시간을 기준으로 들어오는 순서를 정렬하여 대기 큐로 넣는다.
-		for(int i=0; i<jobs.length-1;i++) {
-			if(jobs[i][1]>jobs[i+1][1]) {
-				temp=jobs[i][1];
-				jobs[i+1][1]=jobs[i][1];
-				jobs[i][1]=temp;
+		for(int i=0; i<jobs.length-1;i++) { 
+			if(jobs[i][0]>jobs[i+1][0]) {
+				temp=jobs[i];
+				jobs[i+1]=jobs[i];
+				jobs[i]=temp;
+				System.out.println(i+"번");
 			}
+			System.out.println(jobs[i][0]+"의 값");
 		}
 		// now가 0일때 시작 큐에 넣음
 		if(jobs[now][1]==now) {
 			working.offer(new workT(now, jobs[now][1], now));
 		}
 		
-		while(working.size()!=0) {
+		while(working.size()!=0||delay.size()!=0) {
 			// 시간 증가
 			now++;
 			// 3-1. [작업 큐]작업이 종료되면 큐에서 뺀다
@@ -91,33 +92,17 @@ public class Solution2 {
 			}			
 			// 3. [대기큐][작업큐] 대기 큐에 있는 것 중 우선순위가 높은 것을 작업큐로 옮긴다.
 			
-			if(working.size()==0) {
-				if(delay.size()==1) {
-					working.offer(delay.poll());
-				}else if(delay.size()>1) {
-					working.offer(delay.poll().getWt()); //*** 여기에서 delay에 있는 값을 비교해야함. compareTo 메소드 사용??
-				}
-				//오늘은 쉽니다
+			if(working.size()==0&&delay.size()!=0) {
+					working.offer(delay.poll()); //*** 여기에서 delay에 있는 값을 비교해야함. compareTo 메소드 사용??
 			}
 			// 3-2. 시간이 되면 넣기
-			// 어허
-			
+			System.out.println(now+"번 돌았음");
 		}
-		// 4. 대기 큐가 비어있다면 반복문을 끝내고 반환한다.
-		// * 대기시간+처리시간 = 현재시간 -입력시간
-		
-		// 현재시간를 저장할 것이 필요
-		// 처리 시작시간+ 작업시간 => poll
-		
-		
-		// 작업을 처리 시작할 때 poll -> 현재시간 - 입력시간 = answer
-		// 작업을 종료하고 새로운 작업을 시작할 때 offer -> 남은 것들 중 value값이 가장 작은 것 부터 넣는다.
-		
 		
 			return answer/jobs.length;
 	}
 	
 	public static void main(String[] args) {
-		new Solution2().solution1();
+		System.out.println(new Solution2().solution1());
 	}
 }
