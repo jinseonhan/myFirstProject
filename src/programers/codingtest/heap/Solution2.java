@@ -38,14 +38,8 @@ class workT implements Comparable<workT>{
 	 * 우선순위 조건
 	 */
 	@Override 
-	public int compareTo(workT w1) {
-		if(this.wt<w1.getWt()) {
-			return -1;
-		}else if(this.wt>w1.getWt()) {
-			return 1;
-		}else {
-			return 0;
-		}
+	public int compareTo(workT w1) { // 내림차순 정
+		return w1.getWt()-this.getWt();
 	}
 	
 }
