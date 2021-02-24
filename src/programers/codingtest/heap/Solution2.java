@@ -57,8 +57,8 @@ public class Solution2 {
 		int temp[];// 정렬용 임시 변수
 		
 		// 1. 시간을 기준으로 들어오는 순서를 정렬하여 대기 큐로 넣는다.
-		for(int i=0; i<jobs.length-1;i++) { 
-			if(jobs[i][0]>jobs[i+1][0]) {
+		for(int i=0; i<jobs.length-1;i++) {  // 2번의 값
+			if(jobs[i][0]>jobs[i+1][0]) { // 1번 들어옴
 				temp=jobs[i];
 				jobs[i+1]=jobs[i];
 				jobs[i]=temp;
