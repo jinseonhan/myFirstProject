@@ -4,7 +4,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.LinkedList;
 import java.util.PriorityQueue;
-
+// 주말에 파악합시다!
 public class ExSolution {
 	 class Job {
 	        int requestTime;
