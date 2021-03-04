@@ -17,7 +17,6 @@ public class Solution2 {
 	// a. string으로 바꾸어  chatAt[0] 비교하여 큰 숫자
 	  public String solution(int[] numbers) {
 		  	String answer = "";
-	        StringBuilder sb = new StringBuilder();
 		  	int temp=0;
 	       
 		  	
@@ -36,7 +35,7 @@ public class Solution2 {
 	        	answer+=Integer.toString(numbers[numbers.length-1]);
 	        return answer;
 	    }
-	
+
 	
 	  public static void main(String[] args) {
 		 // int[] numbers = {6,10,2};
