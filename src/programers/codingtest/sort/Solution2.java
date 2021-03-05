@@ -14,7 +14,8 @@ public class Solution2 {
 //	이중 가장 큰 수는 6210입니다.
 //	0 또는 양의 정수가 담긴 배열 numbers가 매개변수로 주어질 때, 
 //	순서를 재배치하여 만들 수 있는 가장 큰 수를 문자열로 바꾸어 return 하도록 solution 함수를 작성해주세요.
-	// a. string으로 바꾸어  chatAt[0] 비교하여 큰 숫자
+	
+	// 방법1(반복문, 통과X)
 	  public String solution(int[] numbers) {
 		  	String answer = "";
 		  	int temp=0;
@@ -36,7 +37,7 @@ public class Solution2 {
 	        return answer;
 	    }
 
-	
+	// 통과방법 (String builder 사용)
 	  public static void main(String[] args) {
 		 // int[] numbers = {6,10,2};
 		  int[] numbers = {3,30,34,5,9};
