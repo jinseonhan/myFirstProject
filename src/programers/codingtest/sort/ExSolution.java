@@ -1,4 +1,4 @@
-package programers.codingtest.heap;
+package programers.codingtest.sort;
 
 import java.util.Collections;
 import java.util.Comparator;
