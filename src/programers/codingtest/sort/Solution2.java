@@ -43,6 +43,6 @@ public class Solution2 {
 		  int[] numbers = {3,30,34,5,9};
 		  System.out.println(new Solution2().solution(numbers));
 	  }
-	 /// 
+	  //
 }
 
