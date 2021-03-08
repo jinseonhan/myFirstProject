@@ -47,8 +47,8 @@ public class Solution {
     }
 	
 	public static void main(String[] args) {
-		int[] answers = {1,2,3,4,5};
-//		int[] answers = {1,3,2,4,2};
+//		int[] answers = {1,2,3,4,5};
+		int[] answers = {1,3,2,4,2};
 		int[] receive=new Solution().solution(answers);
 		for(int m=0;m<receive.length;m++) {
 			System.out.print(receive[m]);
