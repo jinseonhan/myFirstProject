@@ -31,16 +31,20 @@ public class Solution {
         	}
         }
      // temp를 1~3으로 변환해야함
-        int[] sorts = {temp1,temp2,temp3};
-        Arrays.sort(sorts);
         int[] out = {};
         if(temp1==temp2&&temp1==temp3) {// 맞은 갯수가 같은 경우 오름차순 반환
-        	out = new int[3];
-        	
-//        	out =sorts;
-        }else { // 아니면 가장 마지막 수가 가장 큰값
+        	int[] sorts = {temp1,temp2,temp3};
+        	Arrays.sort(sorts);
+        	out = sorts;
+        }else if(temp1>temp2&&temp1>temp3) {
+        	out =new int[1];
+        	out[0]=1;
+        }else if(temp2>temp1&&temp2>temp3){ 
         	out = new int[1];
-//        	out[0]=sorts[2];
+        	out[0]=2;
+        }else {
+        	out = new int[1];
+        	out[0]=3;
         }
         
         return out;
