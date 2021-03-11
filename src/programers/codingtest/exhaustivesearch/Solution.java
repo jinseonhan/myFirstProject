@@ -31,6 +31,7 @@ public class Solution {
         	}
         }
      // temp를 1~3으로 변환해야함
+        
         int[] out = {};
         if(temp1==temp2&&temp1==temp3) {// 맞은 갯수가 같은 경우 오름차순 반환
         	int[] sorts = {temp1,temp2,temp3};
