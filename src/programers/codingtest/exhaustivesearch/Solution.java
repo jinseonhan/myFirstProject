@@ -59,5 +59,5 @@ public class Solution {
 			System.out.print(receive[m]);
 		}
 	}
-	
+	//
 }
