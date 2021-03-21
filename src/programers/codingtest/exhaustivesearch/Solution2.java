@@ -21,7 +21,7 @@ public class Solution2 {
 	 * 
 	 * // 소수를 구하는 반복문에 if문+for문을 넣어 같은 숫자가 있는지 비교하고 // 같은 값이 있으면 answer를 1증가시키고 배열에서
 	 * 그 것을 뺀다.(반복횟수 감소를 위해) return answer; }
-	 *////////
+	 *////////////////
 	int count = 0; // 세야지//
 	
 	public int solution(String nums) { 
