@@ -63,7 +63,7 @@ public class Solution2 {
 	
 
    public static void main(String[] args) {
-	   String numbers = "17";
+	   String numbers = "20";
 	   System.out.println(new Solution2().solution(numbers));
    }
 	   
