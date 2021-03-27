@@ -16,7 +16,7 @@ public class Solution2 {
 	 * 조합한 값 중 가장 큰값을 저장할 변수(몇 번 반복할 것인지 정하기 위해) ArrayList<Integer> list = new
 	 * ArrayList<>(); // 조합한 값들을 넣을 list
 	 * 
-	 * // 1.조합할수 있는 값들을 arrayList에 담으면서 동시에 가장 큰 값을 저장한다.
+	 * // 1.조합할수 있는 값들을 arrayList에 담으면서 동시에 가장 큰 값을 저장한다.dd
 	 * 
 	 * 
 	 * // 소수를 구하는 반복문에 if문+for문을 넣어 같은 숫자가 있는지 비교하고 // 같은 값이 있으면 answer를 1증가시키고 배열에서
