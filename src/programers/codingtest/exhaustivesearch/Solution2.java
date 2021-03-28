@@ -9,7 +9,7 @@ import java.util.ArrayList;
 //numbers는 0~9까지 숫자만으로 이루어져 있습니다.
 //"013"은 0, 1, 3 숫자가 적힌 종이 조각이 흩어져있다는 의미입니다.
 
-public class Solution2 {
+public class Solution2 {//
 	/*
 	 * public int solution(String numbers) { // 떨어진 숫자가 몇개인지 확인 // 그 숫자들을 조합하여 소수를
 	 * 만드는 방법 // 1,0을 제외한다. // 소수의 갯수를 반환한다. int answer=0; // 반환할 값 int hight=0; //
