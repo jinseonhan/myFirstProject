@@ -13,7 +13,7 @@ public class Solution2 {
         	return answer;
         }///
         //
-        // 앞으로 갈지 뒤로 갈지 결정할 반복문
+        // 앞으로 갈지 뒤로 갈지 결정할 반복문/
         for(int i=0;i<name.length();i++) {
         	// 둘다 'A'일 경우
         	if(name.charAt(i+1)=='A'&&name.charAt(name.length()-i-1)=='A') {
