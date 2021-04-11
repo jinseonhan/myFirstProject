@@ -6,30 +6,58 @@ package programers.codingtest.greedy;
 //number에서 k 개의 수를 제거했을 때 만들 수 있는 수 중 가장 큰 숫자를 문자열 형태로 return 하도록 solution 함수를 완성하세요.
 public class Solution3 {
 	
-	// 1. 전체 자릿수 - k 
-	// 2. 반복문을 돌면서 전체 자릿수 -k를 count되면 빠져나온다.
+	// 1. 앞에서부터 k자리까지 가장 큰수를 찾는다.
+	// 2. 가장 크수가 몇번째 자리인지 확인한다.
+	// 3. k개를 제거했는지 확인하고 아니면 남은 자릿수만큼 반복한다.
+	
 	public String solution(String number, int k) {
         String answer = "";
-        int count=number.length()-k; 
         char[] arr = number.toCharArray();
         // 처음 반복문으로 앞에 자릿수를 자른다.
-        int temp=0; //인덱스 번호
-        
-        while(count!=0) {        	
-	        for(int i=temp+1;i<arr.length-k+temp;i++) {
-	        	// 남은 숫자중 다음 가장 큰수 찾기
-	        	if(temp<Integer.parseInt(String.valueOf(arr[i]))){
-	        		temp=i;
+        int idx=0;
+        int big=0;
+        int count=k;
+        int temp=0;
+        while(count!=0) {
+        	
+	        for(int i=0;i<count;i++) {
+	        	if(big<Integer.parseInt(String.valueOf(arr[temp]))) {
+	        		big=Integer.parseInt(String.valueOf(arr[temp]));
+	        		idx=temp;
 	        	}
+	        	temp++;
 	        }
-	        // 처음나오는 가장 큰수를 answer에 담는다.
-	        answer+=arr[temp];
+	        
+	        answer+=arr[idx];
 	        count--;
+	        
+//	        if(count==0) { // 남은 값들을 모두 담을 조건문
+//	        	for(int a=idx+1;a<arr.length;a++) {
+//	        		answer+=arr[a];
+//	        	}
+//	        }
+	        big=0;
         }
-        // 남은 숫자 담기
-        for(int i=temp;i<arr.length;i++) {
-        	answer+=arr[temp];
-        }
+        
+        
+        
+        
+        
+//        while(count!=0) {        	
+//	        for(int i=temp+1;i<arr.length-k+temp;i++) {
+//	        	// 남은 숫자중 다음 가장 큰수 찾기
+//	        	if(temp<Integer.parseInt(String.valueOf(arr[i]))){
+//	        		temp=i;
+//	        	}
+//	        }
+//	        // 처음나오는 가장 큰수를 answer에 담는다.
+//	        answer+=arr[temp];
+//	        count--;
+//        }
+//        // 남은 숫자 담기
+//        for(int i=temp;i<arr.length;i++) {
+//        	answer+=arr[temp];
+//        }
         
         return answer;
     }
