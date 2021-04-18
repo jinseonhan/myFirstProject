@@ -2,14 +2,21 @@ package com.my.test;
 
 public class Test {
 	public static void main(String[] args) {
-		String str=  "abcd";
-		String str1= "efgh";
-		StringBuilder sb = new StringBuilder(str);
-		sb.append(str1);
-		sb.setCharAt(0, 'z');
-		sb.setCharAt(5, 'p');
-		for(int i=0;i<sb.length();i++) {
-			System.out.print(sb.toString().charAt(i)+"+");
+		// 출력값 00001010
+		int[] a = new int[8];
+		int i=0;
+		int n=10;
+		while(n>0) {
+			a[i++]= n%2;
+			n/=2;
 		}
+		
+		for(i=7;i>=0;i--) {
+			System.out.print(a[i]);
+		}
+		
+
 	}
+	
+	
 }
