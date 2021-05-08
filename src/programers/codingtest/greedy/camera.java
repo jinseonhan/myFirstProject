@@ -1,39 +1,39 @@
 package programers.codingtest.greedy;
 
-import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Comparator;
 
 public class camera {
-	ArrayList<Integer> list = new ArrayList<>(); // 출구값들을 담아 놓을 arraylist
 	
-	 public int solution(int[][] routes) {
-	        int answer = 0;
-	        int input=0; // 입구값
-	        int output=0; // 출구값
+	    public int solution(int[][] routes) {
+	        int answer = 1;
 	        
-	        for(int i=0;i<routes.length;i++) {
-	        	if(input==0&&output==0) { // 처음 시작 값 담아주기
-	        		input =routes[i][0];
-	        		output=routes[i][1];
-	        		answer++;
-	        	}else {
-	        		if(input<routes[i][0]||output>routes[i][1]) {
-		        		if(input<routes[i][0]) {
-		        			input=routes[i][0];
-		        		}
-		        		if(output>routes[i][1]) {
-		        			output=routes[i][1];
-		        		}
-	        		}else {
-	        			input=0;
-	        			output=0;
-	        			answer++;
-	        		}
-	        		
-	        	}
+	        Arrays.sort(routes, new Comparator<int[]>(){
+	           @Override
+	            public int compare(int[] a, int[] b){
+	                return a[0] - b[0];
+	            }
+	        });
+	        
+	        int min = routes[0][0];
+	        int max = routes[0][1];
+	        for(int i = 1 ; i < routes.length ; ++i){
+	            int in = routes[i][0];
+	            int out = routes[i][1];
+	            
+	            if(in > max || out < min) {
+	                answer++;
+	                min = in;
+	                max = out;
+	            } else {
+	                min = in > min ? in : min;
+	                max = max > out ? out : max;
+	            }
 	        }
-	        answer++;
+	        
 	        return answer;
-	 }
+	    }
+	
 	 
 	 
 	 
