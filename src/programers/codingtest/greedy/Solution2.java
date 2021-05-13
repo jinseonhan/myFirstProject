@@ -87,7 +87,7 @@ public class Solution2 {
 /////////
     public static void main(String[] args) {
     	System.out.println(new Solution2().solution("JEROEN"));
-////    	System.out.println(new Solution2().solution("JAN"));////////////////
+////    	System.out.println(new Solution2().solution("JAN"));//////////////////
     }//////////
 }//
 ///
