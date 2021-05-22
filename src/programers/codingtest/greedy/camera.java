@@ -2,7 +2,7 @@ package programers.codingtest.greedy;
 
 import java.util.Arrays;
 import java.util.Comparator;
-
+///
 public class camera {
 	
 	    public int solution(int[][] routes) {
