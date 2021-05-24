@@ -30,7 +30,7 @@ public class exam1 {
         	     	if(count==0&&str.length()>0) {
         		return 0;
         	}
-        	//
+        	////
         }while(tf); 
         
         return 0;
