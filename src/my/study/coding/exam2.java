@@ -14,8 +14,8 @@ package my.study.coding;
 // - 명시적인 스택사용(명시적인 스택을 사용하여 방문한 정점들을 스택에 저장하였다가 다시 꺼내어 작업)
 class exam2 {
     // 변수 접근을 위한 전역 변수들.
-    static int numberOfArea;
-    static int maxSizeOfOneArea;
+    static int numberOfArea; // 지역의 갯수
+    static int maxSizeOfOneArea; // 가장 큰 지역의 갯수
     // 한 영역의 수를 저장하는 변수.
     static int temp_cnt = 0;
     // 좌표에서의 상,하,좌,우 탐색을 위한 배열.
@@ -25,7 +25,7 @@ class exam2 {
     // DFS 메소드
     public static void dfs(int x,int y, int[][] picture, boolean[][] check){
         // 6. 방문한 적 있는 좌표라면 DFS 종료.
-        if(check[x][y]) return;
+        if(check[x][y]) return; // boolean의 기본 값은 false
         
         // 7. 처음 방문 시 방문처리.
         check[x][y] = true;
@@ -78,7 +78,11 @@ class exam2 {
         // 15. 각 값을 answer 배열에 담아주고 끝.
         answer[0] = numberOfArea;
         answer[1] = maxSizeOfOneArea;
-        
         return answer;
+    }
+    
+    public static void main(String[] args) {
+    	System.out.println(new exam2().solution(6, 4, new int[][]{{1,1,1,0},{1,1,1,0},{0,0,0,1},{0,0,0,1},{0,0,0,1},{0,0,0,1}})[0]);;
+    	System.out.println(new exam2().solution(6, 4, new int[][]{{1,1,1,0},{1,1,1,0},{0,0,0,1},{0,0,0,1},{0,0,0,1},{0,0,0,1}})[1]);;
     }
 }
