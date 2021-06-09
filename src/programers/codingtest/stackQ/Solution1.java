@@ -39,7 +39,7 @@ import java.util.Stack;
 // 4. 종류////////./////111
 // 선형 큐 : 막대 모양으로, 크기가 제한되어 있고 빈공간을 사용하려면 모든 자료를 꺼내거나 자료를 한칸씩 옮겨야하는 단점이 있음//
 // 화환형 큐 : 선형 큐의 문제점을 보완한 것. front가 큐의 끝에 닿으면 맨앞으로 자료를 보내어 원형으로 연결하는 방식
-////////1111111/
+////////1111111/111111
 public class Solution1 {
 	public static void main(String[] args) {
 		new Solution1().solution();
