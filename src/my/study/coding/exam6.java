@@ -27,7 +27,7 @@ public class exam6 {
         	for(int j=0;j<temp.length;j++) {
         		if(tree.get(count)==temp[j]) {
         			count++;        			
-        		}
+        		}//??
         	}
         	
         	// 검증로직
