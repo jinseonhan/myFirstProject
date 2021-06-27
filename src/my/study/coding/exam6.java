@@ -8,33 +8,31 @@ import java.util.Map;
 public class exam6 {
 	 public int solution(String skill, String[] skill_trees) {
         int answer = 0; // 가능한 스킬트리 갯수
-        int count = 1; // 1부터 2..3.. 계속 더해가며 검증할 수
-        
+        int count = 0; // 1부터 2..3.. 계속 더해가며 검증할 수
+
         ArrayList<Character> tree = new ArrayList<Character>();
+        
         char temp[]= null;
         temp = skill.toCharArray();
         
-        for(int i=0;i<temp.length;i++) {
-        	tree.add(temp[i]);
-        	count++;
+        // 스킬들을 담는다.
+        for(int i =0; i<skill.length();i++) {
+        	tree.add(temp[0]);
         }
-        
         
         for(int i=0;i<skill_trees.length;i++) {
-        	count=0; // 초기화
-        	 temp=skill_trees[i].toCharArray();
-        	
-        	for(int j=0;j<temp.length;j++) {
-        		if(tree.get(count)==temp[j]) {
-        			count++;        			
-        		}//??
-        	}
-        	
-        	// 검증로직
-        	if(count>1) {
+        	for(int j=0;j<skill_trees[i].length();j++) {
         		
+        		
+        	
         	}
+        	
+        	count=0;
         }
+        
+        	
+        	
+        // 
         
         
         //1. skill 로 들어온 순서대로 나와야한다.
