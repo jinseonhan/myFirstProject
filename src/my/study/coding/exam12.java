@@ -13,9 +13,6 @@ public class exam12 {
 		return point;
 	}
 	
-	// 처음가는 길인지 확인할 메소드
-	
-	
 	public int solution(String dirs) {
         int answer = 0; // 중복되지 않는 거리
         int x = 5; // x축의 default 값
