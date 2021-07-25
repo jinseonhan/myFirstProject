@@ -20,29 +20,26 @@ public class exam12 {
         int answer = 0; // 중복되지 않는 거리
         int x = 5; // x축의 default 값
         int y = 5; // y축의 default 값
-        boolean[][] check= new boolean[10][10]; // default = false;
+        int target = 0; // 변경할 값인지 확인
+        boolean[][][] check= new boolean[10][10][4]; // default = 0;
         
-        check[5][5] =true;
         // 1. 좌표를 이동한다.
         // 2. 좌표를 이동하였을 때, 범위 밖을 넘어갔는지 안넘어갔는지 확인하고 다음 좌표값을 입력한다.
         // 3. answer가 +1이 안되는 경우,
         // 3-1. 이미 지나간 곳
         // 3-2. 좌표 밖을 나가서 제자리일 경우
-        
         for(int i=0; i<dirs.length();i++) {
         	// 현재 위치 기억
         	
-        	
         	switch(dirs.charAt(i)) {
-        	case 'L' : x=new exam12().postion(x, -1);break; // X-1
-        	case 'R' : x=new exam12().postion(x, +1);break; // X+1
-        	case 'D' : y=new exam12().postion(y, -1);break; // Y-1
-        	case 'U' : y=new exam12().postion(y, +1);break; // Y+1
+        	case 'L' : x=new exam12().postion(x, -1); target=0;break; // X-1, 들어온 곳 기준 오른쪽 선분 생성할지 안할지 결정해야함
+        	case 'R' : x=new exam12().postion(x, +1); target=1;break; // X+1, 들어온 곳 기준 왼쪽 선분 생성
+        	case 'D' : y=new exam12().postion(y, -1); target=2;break; // Y-1, 들어온 곳 기준 위쪽 선분 생성
+        	case 'U' : y=new exam12().postion(y, +1); target=3;break; // Y+1, 들어온 곳 기준 아래쪽 선분 생성
         	}
         	
-        	System.out.println("x : "+x +", y : "+ y+", check[x][y] = "+check[x][y]);
-        	if(!check[x][y]) { // check[x][y]가 false일때 들어옴
-        		check[x][y] = true;
+        	if(!check[x][y][target]) { // check[x][y][target]가 false일때 들어옴
+        		check[x][y][target] = true;
         		answer++;
         	}
         }
