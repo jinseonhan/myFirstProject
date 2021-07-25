@@ -1,5 +1,5 @@
 package my.study.coding;
-
+// 프로그래머스 2단계 - 예상대진표
 public class exam9 {
 	public int solution(int n, int a, int b){
         int answer = 0; // 라운드는 1라운드 부터 시작
