@@ -1,7 +1,6 @@
 package my.study.coding;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.LinkedList;
 
 //캐시
 //지도개발팀에서 근무하는 제이지는 지도에서 도시 이름을 검색하면 해당 도시와 관련된 맛집 게시물들을 데이터베이스에서 읽어 보여주는 서비스를 개발하고 있다.
@@ -33,76 +32,40 @@ import java.util.Map;
 //0	["Jeju", "Pangyo", "Seoul", "NewYork", "LA"]	25
 public class LRUCache {
 	
-	private Map<Integer, node> nodeMap;
-	private int capacity;
-	private node head;
-	private node tail;
+	public int solution(int cacheSize, String[] cities) {
+        int answer = 0;
+        LinkedList<String> cache = new LinkedList<String>();
+        int hit = 1;
+        int miss = 5;
+        
+      	// 캐시 사이즈가 0 = 캐시에 아무것도 못 담음 => 모두 cache miss
+        if (cacheSize == 0) 
+            return cities.length * miss;
+        
+        for (String pastCity : cities) {
+          	// 대소문자를 구분하지 않기 때문에 모두 소문자로 변환하여 저장
+            String city = pastCity.toLowerCase();
+            
+            if (!cache.isEmpty() && cache.contains(city)) {
+                // 가장 최근에 사용된 항목은 리스트의 맨 앞에 위치해야 하기 때문에 캐시 안에 있는 값 미리 삭제
+                cache.remove(cache.indexOf(city));
+                answer += hit;
+            } else {
+                // 이미 캐시 최대 사이즈를 도달했다면
+                if (cache.size() >= cacheSize) {
+                    // 맨 뒤에 있는 값 삭제
+                    cache.remove(cacheSize - 1);
+                }
+                answer += miss;
+            }
+            // 가장 최근에 조회한 값 맨 앞에 위치
+            cache.add(0, city);
+        }
+        return answer;
+    }
 	
-	private class node{
-		private int key;
-		private int value;
-		private node prev;
-		private node next;
-		
-		public node(int key, int value) {
-			this.key = key;
-			this.value = value;
-			this.prev = null;
-			this.next = null;
-		}
-	}
-	
-	public LRUCache(int capacity) {
-		this.nodeMap = new HashMap<>();
-		this.capacity = capacity;
-		head = new node(0, 0);
-		tail = new node(0, 0);
-		head.next = tail;
-		tail.prev = head;
-	}
-	// 시간복잡도 0(1)
-	private void remove(node node) {
-		node.prev.next=node.next;
-		node.next.prev=node.prev;
-		
-		nodeMap.remove(node.key);
-	}
-	
-	// 시간복잡도 0(1)
-	private void insertToHead(node node) {
-		this.head.next.prev = node;
-		node.next = this.head.next;
-		node.prev = this.head;
-		
-		nodeMap.put(node.key, node);
-	}
-	
-	private int get(int key) {
-		if(!nodeMap.containsKey(key))
-			return -1;
-		
-		node getNode= nodeMap.get(key);
-		remove(getNode);
-		insertToHead(getNode);
-		return getNode.value;
-	}
-
-	// 시간복잡도 0(1)
-	public void put(int key, int value) {
-		node newNode = new node(key, value);
-		if(nodeMap.containsKey(key)) {
-			node oldNode = nodeMap.get(key);
-			remove(oldNode);
-			
-		}else {
-			if (nodeMap.size() >= this.capacity) {
-				node delNode = tail.prev;
-				remove(delNode);
-			}
-		}
-		insertToHead(newNode);
-	}
 	public static void main(String[] args) {
-		
+		String[] str = {"Jeju", "Pangyo", "Seoul", "NewYork", "LA", "Jeju", "Pangyo", "Seoul", "NewYork", "LA"};
+		System.out.println(new LRUCache().solution(3,str));
 	}
 }
