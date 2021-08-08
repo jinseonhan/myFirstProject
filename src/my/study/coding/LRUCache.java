@@ -51,7 +51,7 @@ public class LRUCache {
 			this.next = null;
 		}
 	}
-
+	
 	public LRUCache(int capacity) {
 		this.nodeMap = new HashMap<>();
 		this.capacity = capacity;
@@ -102,5 +102,7 @@ public class LRUCache {
 		}
 		insertToHead(newNode);
 	}
-	
+	public static void main(String[] args) {
+		
+	}
 }
